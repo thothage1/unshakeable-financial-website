@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog | Unshakeable Financial Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#070C17;--bg2:#0B1220;--gold:#C8A94A;--gold-lt:#E2C876;
+      --white:#FFFFFF;--text:#EDF0F7;--muted:#8895AD;--border:rgba(200,169,74,.15);--max:1160px;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;}
+    h1,h2,h3{font-family:'Playfair Display',serif;}
+    .container{max-width:var(--max);margin:0 auto;padding:0 1.5rem;}
+    a{color:inherit;text-decoration:none;}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+    .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;}
+    .logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:.88rem;color:var(--muted);}
+    .nav-links a:hover{color:var(--gold);}
+    .page-header{text-align:center;padding:4rem 0 3rem;}
+    .page-header h1{font-size:2.4rem;margin-bottom:.75rem;}
+    .page-header p{color:var(--muted);}
+    .post-list{display:grid;gap:1.5rem;padding-bottom:5rem;}
+    .post-card{border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:#0D1526;}
+    .post-card h2{font-size:1.3rem;margin-bottom:.5rem;}
+    .post-card .date{color:var(--gold);font-size:.8rem;margin-bottom:.6rem;display:block;}
+    .post-card p{color:var(--muted);margin-bottom:1rem;}
+    .post-card .read-more{color:var(--gold);font-size:.9rem;font-weight:600;}
+    footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--muted);font-size:.85rem;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Unshakeable<span>Financial</span></a>
+    <div class="nav-links">
+      <a href="business-owners.html">Business Owners</a>
+      <a href="individuals.html">Individuals</a>
+      <a href="policy-rescue.html">Fix My Policy</a>
+      <a href="agents.html">Agents</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Free Guides</a>
+      <a href="blog.html">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1>The Unshakeable Blog</h1>
+    <p>Straight talk on taxes, wealth strategy, and building something that lasts.</p>
+  </div>
+
+  <div class="post-list">
+
+    <!-- ADD A NEW post-card BLOCK LIKE THIS ONE FOR EACH NEW POST -->
+    <a href="blog/my-first-post.html" class="post-card">
+      <span class="date">July 23, 2026</span>
+      <h2>My First Post Title Goes Here</h2>
+      <p>A short one or two sentence summary of what this post is about, to hook the reader in.</p>
+      <span class="read-more">Read more →</span>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Unshakeable Financial Partners | Common Sense Financial LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
