@@ -1,0 +1,229 @@
+<!--
+════════════════════════════════════════════════════════════════
+  UNSHAKEABLE FINANCIAL — AD TRACKING SNIPPET
+  Version: 1.0
+
+  HOW TO INSTALL:
+  1. Replace YOUR_META_PIXEL_ID with your 15-digit Facebook Pixel ID
+  2. Replace AW-XXXXXXXXXX with your Google Ads Tag ID
+  3. Copy the entire <script> block into EVERY page's <head> section,
+     just before the closing </head> tag
+  4. Redeploy to Netlify
+
+  WHAT THIS DOES:
+  - Fires Facebook Pixel + Google Ads tag on every page visit
+  - Fires named custom events per page so you can build segmented audiences:
+      • Business owners audience  → business-owners.html visitors
+      • Bad policy audience       → policy-rescue.html visitors
+      • Individuals audience      → individuals.html visitors
+      • Agents audience           → agents.html visitors
+      • Hot leads (high intent)   → anyone who clicked Calendly CTA
+      • Guide downloaders         → resources.html visitors
+      • About page viewers        → about.html visitors (warm, trust-building)
+  - Sets a 180-day cookie to track which audience segment each visitor falls into
+  - Pushes those segments to both Meta and Google for sequential retargeting
+
+  SEQUENTIAL AD STRATEGY (run ads in this order):
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STEP 1 — COLD (never visited)                               │
+  │   Target: Lookalike audiences from your client list          │
+  │   Ad: Tracy's story / "Your bank is getting rich off        │
+  │        your cash" / The Rockefeller hook                    │
+  │   Goal: Drive to homepage or business-owners page           │
+  ├─────────────────────────────────────────────────────────────┤
+  │ STEP 2 — WARM (visited site, didn't book)                   │
+  │   Audience: All website visitors last 30 days               │
+  │   Ad: Case study testimonial (Jason S., Jacob L.)           │
+  │        "Here's what happened when a dentist did this..."    │
+  │   Goal: Drive back to page they visited + book call         │
+  ├─────────────────────────────────────────────────────────────┤
+  │ STEP 3 — HOT (visited Calendly or policy-rescue)            │
+  │   Audience: ViewContent(policy_rescue) or CTA clickers      │
+  │   Ad: "Still thinking about it? The audit is free."         │
+  │        Direct response — limited spots, book now            │
+  │   Goal: Book the call                                       │
+  ├─────────────────────────────────────────────────────────────┤
+  │ STEP 4 — UNCONVERTED (saw Step 3, still didn't book)        │
+  │   Audience: Hot leads minus converters (exclude Lead event) │
+  │   Ad: Video — Tracy speaking directly to camera             │
+  │        "I know you're skeptical. My parents were too."      │
+  │   Goal: Final push to book or download a guide              │
+  └─────────────────────────────────────────────────────────────┘
+
+  PLATFORM-SPECIFIC AUDIENCE SETUP:
+  Meta Ads Manager:
+    • Custom Audience → Website Traffic → "people who visited specific pages"
+    • Create one audience per custom event name below
+    • Exclude "Lead" event from retargeting audiences (already converted)
+
+  Google Ads:
+    • Audience Manager → Website visitors → segment by URL path
+    • Use remarketing lists for search ads (RLSA) on relevant keywords
+    • YouTube: upload customer list for similar audiences
+
+  LINKEDIN (add LinkedIn Insight Tag separately — get tag from Campaign Manager):
+    • Best for Agents page (financial professionals)
+    • Target by: Job title = Financial Advisor, Insurance Agent, Broker
+    • Sequential: whitepaper download → case study → "join the network"
+════════════════════════════════════════════════════════════════
+-->
+
+<!-- ═══ PASTE THIS ENTIRE BLOCK INTO EVERY PAGE <head> ═══ -->
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_META_PIXEL_ID');  // ← REPLACE THIS
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+
+<!-- Google Ads Global Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>  <!-- ← REPLACE AW-XXXXXXXXXX -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-XXXXXXXXXX');  // ← REPLACE AW-XXXXXXXXXX
+</script>
+<!-- End Google Ads -->
+
+<!-- ═══ VISITOR SEGMENTATION + SEQUENTIAL AD LOGIC ═══ -->
+<script>
+(function() {
+  // ── Page detection ──────────────────────────────────────────
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var pageMap = {
+    '/':                   { segment: 'homepage',       label: 'Homepage Visitor' },
+    '/index':              { segment: 'homepage',       label: 'Homepage Visitor' },
+    '/index.html':         { segment: 'homepage',       label: 'Homepage Visitor' },
+    '/business-owners':    { segment: 'business_owner', label: 'Business Owner' },
+    '/business-owners.html':{ segment: 'business_owner',label: 'Business Owner' },
+    '/individuals':        { segment: 'individual',     label: 'Individual / High Earner' },
+    '/individuals.html':   { segment: 'individual',     label: 'Individual / High Earner' },
+    '/policy-rescue':      { segment: 'policy_rescue',  label: 'Bad Policy Prospect' },
+    '/policy-rescue.html': { segment: 'policy_rescue',  label: 'Bad Policy Prospect' },
+    '/agents':             { segment: 'agent',          label: 'Financial Agent' },
+    '/agents.html':        { segment: 'agent',          label: 'Financial Agent' },
+    '/about':              { segment: 'about',          label: 'About Page (Trust Builder)' },
+    '/about.html':         { segment: 'about',          label: 'About Page (Trust Builder)' },
+    '/resources':          { segment: 'guide_downloader', label: 'Guide Downloader' },
+    '/resources.html':     { segment: 'guide_downloader', label: 'Guide Downloader' }
+  };
+
+  var page = pageMap[path] || { segment: 'other', label: 'Other Page' };
+
+  // ── Cookie helpers ──────────────────────────────────────────
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
+  function getCookie(name) {
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name + '=') === 0) return c.substring(name.length + 1);
+    }
+    return '';
+  }
+
+  // ── Track visited segments (comma-separated in cookie) ──────
+  var visited = getCookie('uf_segments') ? getCookie('uf_segments').split(',') : [];
+  if (page.segment !== 'other' && visited.indexOf(page.segment) === -1) {
+    visited.push(page.segment);
+    setCookie('uf_segments', visited.join(','), 180);
+  }
+
+  // ── Fire segment-specific Meta Pixel custom event ───────────
+  if (typeof fbq !== 'undefined') {
+    // Standard ViewContent for ALL pages (enables retargeting for any visitor)
+    fbq('track', 'ViewContent', {
+      content_name: page.label,
+      content_category: page.segment
+    });
+
+    // Segment-specific custom events (for hyper-targeted audiences)
+    var customEvents = {
+      'business_owner': 'ViewBusinessOwnerPage',
+      'individual':     'ViewIndividualsPage',
+      'policy_rescue':  'ViewPolicyRescuePage',
+      'agent':          'ViewAgentsPage',
+      'about':          'ViewAboutPage',
+      'guide_downloader': 'ViewResourcesPage'
+    };
+    if (customEvents[page.segment]) {
+      fbq('trackCustom', customEvents[page.segment]);
+    }
+
+    // Multi-page journey tracking (retarget anyone who saw 2+ sections)
+    if (visited.length >= 2) {
+      fbq('trackCustom', 'HighEngagementVisitor', { pages_visited: visited.join(',') });
+    }
+  }
+
+  // ── Fire Google Ads remarketing audience signal ──────────────
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view_segment', {
+      'segment': page.segment,
+      'pages_visited': visited.join(',')
+    });
+  }
+
+  // ── CTA click tracking (fires Lead event when Calendly is clicked) ──
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href*="calendly"]');
+    if (el) {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Calendly CTA',
+          content_category: page.segment
+        });
+      }
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-XXXXXXXXXX/REPLACE_WITH_CONVERSION_LABEL',  // ← set up a conversion in Google Ads
+          'event_category': 'CTA',
+          'event_label': 'Calendly Click - ' + page.segment
+        });
+      }
+      setCookie('uf_clicked_cta', '1', 180);
+    }
+  }, true);
+
+  // ── Guide download tracking ──────────────────────────────────
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href$=".pdf"]');
+    if (el) {
+      var filename = el.href.split('/').pop();
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'Guide Download: ' + filename });
+        fbq('trackCustom', 'GuideDownload', { guide: filename });
+      }
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'file_download', { file_name: filename, segment: page.segment });
+      }
+      setCookie('uf_downloaded_guide', '1', 180);
+    }
+  }, true);
+
+  // ── Quiz completion tracking ─────────────────────────────────
+  // Fires when quiz result is shown (hook into existing quiz JS)
+  window.addEventListener('uf_quiz_complete', function(e) {
+    if (typeof fbq !== 'undefined') {
+      fbq('trackCustom', 'QuizCompleted', { score: e.detail && e.detail.score });
+    }
+  });
+
+})();
+</script>
+<!-- ═══ END TRACKING ═══ -->
