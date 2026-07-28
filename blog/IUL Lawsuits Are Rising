@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>IUL Lawsuits Are Rising in 2026 — Here's How to Tell a Legitimate Policy From a Bad One | Unshakeable Financial Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#070C17;--gold:#C8A94A;--white:#FFFFFF;--text:#EDF0F7;
+      --muted:#8895AD;--border:rgba(200,169,74,.15);--max:760px;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75;}
+    h1,h2,h3{font-family:'Playfair Display',serif;}
+    .container{max-width:var(--max);margin:0 auto;padding:0 1.5rem;}
+    a{color:var(--gold);text-decoration:none;}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);}
+    .nav-inner{max-width:1160px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--text);}
+    .logo span{color:var(--gold);}
+    .nav-links a{margin-left:1.5rem;font-size:.88rem;color:var(--muted);}
+    .post-header{padding:3.5rem 0 2rem;}
+    .post-header .date{color:var(--gold);font-size:.85rem;}
+    .post-header h1{font-size:2.2rem;margin:.75rem 0 0;}
+    .post-body{padding-bottom:4rem;color:var(--text);}
+    .post-body p{margin-bottom:1.25rem;font-size:1.05rem;}
+    footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--muted);font-size:.85rem;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Unshakeable<span>Financial</span></a>
+    <div class="nav-links">
+      <a href="../blog.html">← Back to Blog</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="post-header">
+    <span class="date">July 28, 2026</span>
+    <h1>IUL Lawsuits Are Rising in 2026 — Here's How to Tell a Legitimate Policy From a Bad One</h1>
+  </div>
+  <div class="post-body">
+    <p>There's a
