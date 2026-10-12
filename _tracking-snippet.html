@@ -17,7 +17,7 @@
       • Bad policy audience       → policy-rescue.html visitors
       • Individuals audience      → individuals.html visitors
       • Agents audience           → agents.html visitors
-      • Hot leads (high intent)   → anyone who clicked Calendly CTA
+      • Hot leads (high intent)   → anyone who clicked Booking CTA
       • Guide downloaders         → resources.html visitors
       • About page viewers        → about.html visitors (warm, trust-building)
   - Sets a 180-day cookie to track which audience segment each visitor falls into
@@ -181,11 +181,11 @@ src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/>
 
   // ── CTA click tracking (fires Lead event when Calendly is clicked) ──
   document.addEventListener('click', function(e) {
-    var el = e.target.closest('a[href*="calendly"]');
+    var el = e.target.closest('a[href*="widget/bookings"]');
     if (el) {
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
-          content_name: 'Calendly CTA',
+          content_name: 'Booking CTA',
           content_category: page.segment
         });
       }
@@ -193,7 +193,7 @@ src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/>
         gtag('event', 'conversion', {
           'send_to': 'AW-XXXXXXXXXX/REPLACE_WITH_CONVERSION_LABEL',  // ← set up a conversion in Google Ads
           'event_category': 'CTA',
-          'event_label': 'Calendly Click - ' + page.segment
+          'event_label': 'Booking Click - ' + page.segment
         });
       }
       setCookie('uf_clicked_cta', '1', 180);
