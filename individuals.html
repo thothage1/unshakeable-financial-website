@@ -266,7 +266,7 @@ fbq("track", "PageView");
 
 <!-- Visitor Segmentation + Sequential Ad Logic -->
 <script>
-(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='calendly']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Calendly CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
+(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='widget/bookings']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Booking CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
 </script>
 <!-- End Tracking -->
   <script type="application/ld+json">
@@ -302,7 +302,7 @@ fbq("track", "PageView");
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-17:00",
     "sameAs": [
-      "https://calendly.com/tracy-retirement-tax-free/15min"
+      "https://link.crmvo.com/widget/bookings/unshakeable-strategy-call"
     ]
   }
   </script>
@@ -332,7 +332,7 @@ fbq("track", "PageView");
       <a href="about.html">About</a>
       <a href="resources.html">Free Guides</a>
     </div>
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">&#9776;</button>
   </div>
 </nav>
@@ -352,7 +352,7 @@ fbq("track", "PageView");
       <a href="resources.html">Free Guides</a>
   </div>
   <div class="nav-mobile-cta-wrap">
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
   </div>
 </div>
 
@@ -373,7 +373,7 @@ fbq("track", "PageView");
         <span class="badge">Generational Wealth Builders</span>
       </div>
       <div class="hero-cta">
-        <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If You Qualify for This Strategy →</a>
+        <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If You Qualify for This Strategy →</a>
         <a href="#compare" class="btn btn-outline btn-lg">Show Me the Comparison</a>
       </div>
     </div>
@@ -437,7 +437,7 @@ fbq("track", "PageView");
     </div>
     <div id="ind-priority-response" style="display:none;max-width:720px;margin:0 auto;border:1px solid rgba(200,169,74,.35);border-radius:14px;padding:2.25rem;background:rgba(200,169,74,.05);transition:all .4s;">
       <p id="ind-priority-msg" style="font-size:1.05rem;line-height:1.8;color:var(--text);margin-bottom:1.75rem;"></p>
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold">See If You Qualify for This Strategy →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">See If You Qualify for This Strategy →</a>
     </div>
   </div>
 </section>
@@ -541,7 +541,7 @@ function indSelect(el){
       </div>
     </div>
     <div style="text-align:center;margin-top:3rem;" class="fade">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Build My Personal Strategy →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Build My Personal Strategy →</a>
     </div>
   </div>
 </section>
@@ -571,7 +571,7 @@ function indSelect(el){
       <div class="step fade">
         <div class="step-num">01</div>
         <h3>We Run Your Numbers</h3>
-        <p>A free 15-minute session where we look at your income, tax bracket, and current retirement accounts. No obligation — just an honest look at what the strategy could do for you specifically.</p>
+        <p>A free 30-minute session where we look at your income, tax bracket, and current retirement accounts. No obligation — just an honest look at what the strategy could do for you specifically.</p>
       </div>
       <div class="step fade">
         <div class="step-num">02</div>
@@ -746,7 +746,7 @@ function indSelect(el){
               </div>
               <p style="font-size:.75rem;color:var(--faint);margin-top:.85rem;">No spam. Unsubscribe anytime.</p>
               <div style="margin-top:2rem;">
-                <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-outline">Skip the Report &#8212; Book a Call Instead &#8594;</a>
+                <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-outline">Skip the Report &#8212; Book a Call Instead &#8594;</a>
               </div>
             </div>
           </div>
@@ -779,7 +779,7 @@ function indSelect(el){
       </div>
       <div class="faq-item">
         <button class="faq-q">What's the minimum I need to make this worthwhile?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>There's no universal minimum, but the strategy typically makes the most sense for people funding $500/month or more. We've worked with people funding $500/month all the way up to $2,000,000/year. We'll show you exactly what the numbers look like for your specific situation in our free 15-minute session.</p></div>
+        <div class="faq-a"><p>There's no universal minimum, but the strategy typically makes the most sense for people funding $500/month or more. We've worked with people funding $500/month all the way up to $2,000,000/year. We'll show you exactly what the numbers look like for your specific situation in our free 30-minute session.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What happens to the money if I die?<span class="faq-icon">+</span></button>
@@ -815,9 +815,9 @@ function indSelect(el){
   <div class="fcta-glow"></div>
   <div class="container">
     <h2>You've Worked Hard<br>for Your Money.<br><span class="gold">Make It Work Harder for You.</span></h2>
-    <p>15 minutes. Free. We'll look at your current situation and show you exactly where the Rockefeller strategy could change your financial future.</p>
+    <p>30 minutes. Free. We'll look at your current situation and show you exactly where the Rockefeller strategy could change your financial future.</p>
     <div class="fcta-btns">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book My Free Strategy Session &#8594;</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book My Free Strategy Session &#8594;</a>
       <a href="policy-rescue.html" class="btn btn-outline btn-lg">Already Have a Policy?</a>
     </div>
     <div class="fcta-contact">Call Tracy: <a href="tel:4352323234">(435) 232-3234</a></div>

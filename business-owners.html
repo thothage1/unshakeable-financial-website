@@ -293,7 +293,7 @@ fbq("track", "PageView");
 
 <!-- Visitor Segmentation + Sequential Ad Logic -->
 <script>
-(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='calendly']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Calendly CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
+(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='widget/bookings']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Booking CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
 </script>
 <!-- End Tracking -->
   <script type="application/ld+json">
@@ -329,7 +329,7 @@ fbq("track", "PageView");
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-17:00",
     "sameAs": [
-      "https://calendly.com/tracy-retirement-tax-free/15min"
+      "https://link.crmvo.com/widget/bookings/unshakeable-strategy-call"
     ]
   }
   </script>
@@ -359,7 +359,7 @@ fbq("track", "PageView");
       <a href="agents.html">Agents</a>
       <a href="about.html">About</a>
     </div>
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">&#9776;</button>
   </div>
 </nav>
@@ -378,7 +378,7 @@ fbq("track", "PageView");
       <a href="about.html">About</a>
   </div>
   <div class="nav-mobile-cta-wrap">
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
   </div>
 </div>
 
@@ -400,7 +400,7 @@ fbq("track", "PageView");
         <span class="badge">Ready to Stop Overpaying Taxes</span>
       </div>
       <div class="hero-cta">
-        <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If Your Business Qualifies →</a>
+        <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If Your Business Qualifies →</a>
         <a href="#math" class="btn btn-outline btn-lg">Show Me the Numbers First</a>
       </div>
     </div>
@@ -480,7 +480,7 @@ fbq("track", "PageView");
     </div>
     <div id="bo-priority-response" style="display:none;max-width:720px;margin:0 auto;border:1px solid rgba(200,169,74,.35);border-radius:14px;padding:2.25rem;background:rgba(200,169,74,.05);transition:all .4s;">
       <p id="bo-priority-msg" style="font-size:1.05rem;line-height:1.8;color:var(--text);margin-bottom:1.75rem;"></p>
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold">See If Your Business Qualifies →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">See If Your Business Qualifies →</a>
     </div>
   </div>
 </section>
@@ -558,7 +558,7 @@ function boSelect(el){
       </div>
     </div>
     <div style="text-align:center;margin-top:3rem;" class="fade">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Get a Custom Illustration for My Business →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Get a Custom Illustration for My Business →</a>
     </div>
   </div>
 </section>
@@ -616,7 +616,7 @@ function boSelect(el){
       </div>
     </div>
     <div class="math-cta fade">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Run These Numbers for My Business →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Run These Numbers for My Business →</a>
       <p class="math-disclaimer">Hypothetical illustration for educational purposes only. Target returns of 8–12% are not guaranteed. Results depend on policy structure, carrier performance, employee age and health, and funding levels. The Corp Flex Method is a strategy offered through the Stafford Corporation / US Life ecosystem. Consult your tax and legal advisor before making financial decisions.</p>
     </div>
   </div>
@@ -657,7 +657,7 @@ function boSelect(el){
             <div class="retain-stat-label">More retirement income for your employees — at no net cost to your company</div>
           </div>
           <div style="margin-top:1.5rem;">
-            <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%;justify-content:center;">Enroll My Key Employees →</a>
+            <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%;justify-content:center;">Enroll My Key Employees →</a>
           </div>
         </div>
       </div>
@@ -677,7 +677,7 @@ function boSelect(el){
       <div class="process-step fade">
         <div class="ps-num">01</div>
         <div class="ps-body">
-          <h3>Free Business Cash Flow Analysis (15 min)</h3>
+          <h3>Free Business Cash Flow Analysis (30 min)</h3>
           <p>We look at your business: how much cash you're holding, your profit structure, how many key employees you want to retain, and what your tax situation looks like. You walk away with a clear picture of the opportunity — before committing to anything.</p>
         </div>
       </div>
@@ -753,7 +753,7 @@ function boSelect(el){
       <p>Most CPAs who review this strategy say they wish they'd known about it sooner. We work alongside your existing tax professional — not against them. We can send your CPA a professional overview written specifically for tax professionals before your call, so everyone comes prepared.</p>
       <div class="cpa-btns">
         <a href="mailto:info@mycommonsensefinancial.com?subject=CPA%20Overview%20Request&body=Please%20send%20the%20Corp%20Flex%20Method%20CPA%20overview%20to%20my%20tax%20advisor." class="btn btn-gold">Send This to My CPA →</a>
-        <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-outline">Book a 3-Way Call</a>
+        <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-outline">Book a 3-Way Call</a>
       </div>
       <p class="cpa-note">We've done three-way calls with CPAs hundreds of times. We've never had a CPA who understood the strategy fully tell the client not to do it.</p>
     </div>
@@ -794,9 +794,9 @@ function boSelect(el){
   <div class="fcta-glow"></div>
   <div class="container">
     <h2>Is Your Business<br><span class="gold">a Candidate?</span></h2>
-    <p>15 minutes. No pitch. Just a straight look at your numbers and whether this strategy makes sense for your specific situation. If it doesn't, we'll tell you that too.</p>
+    <p>30 minutes. No pitch. Just a straight look at your numbers and whether this strategy makes sense for your specific situation. If it doesn't, we'll tell you that too.</p>
     <div class="fcta-btns">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book My Free Business Analysis →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Book My Free Business Analysis →</a>
       <a href="index.html#quiz" class="btn btn-outline btn-lg">Take the Unshakeable Quiz First</a>
     </div>
     <div class="fcta-contact">

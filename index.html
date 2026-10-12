@@ -785,7 +785,7 @@ fbq("track", "PageView");
 
 <!-- Visitor Segmentation + Sequential Ad Logic -->
 <script>
-(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='calendly']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Calendly CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
+(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='widget/bookings']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Booking CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
 </script>
 <!-- End Tracking -->
   <script type="application/ld+json">
@@ -821,7 +821,7 @@ fbq("track", "PageView");
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-17:00",
     "sameAs": [
-      "https://calendly.com/tracy-retirement-tax-free/15min"
+      "https://link.crmvo.com/widget/bookings/unshakeable-strategy-call"
     ]
   }
   </script>
@@ -872,7 +872,7 @@ fbq("track", "PageView");
       <a href="resources.html">Free Guides</a>
       <a href="blog.html">Blog</a>
     </div>
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-sm nav-cta-btn">Book Free Analysis →</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">&#9776;</button>
   </div>
 </nav>
@@ -893,7 +893,7 @@ fbq("track", "PageView");
     <a href="blog.html">Blog</a>
   </div>
   <div class="nav-mobile-cta-wrap">
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
   </div>
 </div>
 
@@ -912,7 +912,7 @@ fbq("track", "PageView");
       <p class="hero-sub">The Rockefellers built a dynasty with it. Walt Disney used it to fund Disneyland when banks said no. America's wealthiest families have quietly used it for 100+ years to grow wealth tax-free and pass it down untouched. Most CPAs have never mentioned it. We make it the first conversation.</p>
       <p style="font-size:0.75rem;color:#8895AD;margin-top:0.5rem;">Historical references (Rockefeller, Disney, and others) are provided for educational illustration only and are not a guarantee that any individual will achieve similar results.</p>
       <div class="hero-cta">
-        <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If You Qualify — Free Analysis →</a>
+        <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">See If You Qualify — Free Analysis →</a>
         <a href="#quiz" class="btn btn-outline btn-lg">Take the 2-Min Tax Quiz</a>
       </div>
       <div class="hero-qualifier">
@@ -1224,7 +1224,7 @@ fbq("track", "PageView");
       </div>
       <p class="calc-hero-line">That's <strong id="mult-text">6.6×</strong> more annual income — potentially tax-free, for the rest of your life.</p>
       <div class="calc-actions">
-        <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Get My Personalized Analysis →</a>
+        <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Get My Personalized Analysis →</a>
         <a href="policy-rescue.html" class="btn btn-ghost">Have a Bad Policy? We Can Fix It.</a>
       </div>
       <p class="calc-disclaimer">For illustrative purposes only. Results are hypothetical and not guarantees of future performance. The $180,000 / $50,000 example is based on an actual client case (age 55, 10-year timeline). Individual results depend on health, funding structure, carrier, and market conditions. Consult a qualified financial and tax professional before making any decisions.</p>
@@ -1343,7 +1343,7 @@ fbq("track", "PageView");
       <div class="hiw-step">
         <div class="hiw-num">01</div>
         <h3>Free Cash Flow Analysis</h3>
-        <p>15 minutes. We look at what you have, where it is, and what it could be doing. You walk away with a clear picture of the gap between where you are and what's possible — before you commit to anything.</p>
+        <p>30 minutes. We look at what you have, where it is, and what it could be doing. You walk away with a clear picture of the gap between where you are and what's possible — before you commit to anything.</p>
       </div>
       <div class="hiw-step">
         <div class="hiw-num">02</div>
@@ -1358,7 +1358,7 @@ fbq("track", "PageView");
     </div>
     <div style="text-align:center;margin-top:3rem;" class="fade">
       <div style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;max-width:520px;margin-left:auto;margin-right:auto;"><strong style="color:var(--text);">One important truth:</strong> This is not a get-rich-quick strategy. It takes 10 years to fully mature. The same reason it takes time is the same reason it's called Unshakeable — it's built on the safest asset class in the world, not speculation.</div>
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Start With Step 1 — It's Free →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Start With Step 1 — It's Free →</a>
     </div>
   </div>
 </section>
@@ -1463,7 +1463,7 @@ fbq("track", "PageView");
 
       <div class="faq-item fade">
         <button class="faq-q">I've been burned by a bad IUL before. Why is yours different?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>This is the question I take most personally. My parents were sold a badly designed policy. The agent made money. They lost theirs. The difference is design intent. A commission-driven policy maximizes the agent's payout — high death benefit, low cash value, underfunded projections. A properly structured policy does the opposite: minimum legal death benefit, maximum cash value, conservative illustrations that hold up over 30 years. We can look at any existing policy and tell you within 15 minutes whether it was designed for you or for your agent.</p></div>
+        <div class="faq-a"><p>This is the question I take most personally. My parents were sold a badly designed policy. The agent made money. They lost theirs. The difference is design intent. A commission-driven policy maximizes the agent's payout — high death benefit, low cash value, underfunded projections. A properly structured policy does the opposite: minimum legal death benefit, maximum cash value, conservative illustrations that hold up over 30 years. We can look at any existing policy and tell you within 30 minutes whether it was designed for you or for your agent.</p></div>
       </div>
 
       <div class="faq-item fade">
@@ -1483,7 +1483,7 @@ fbq("track", "PageView");
 
       <div class="faq-item fade">
         <button class="faq-q">What's the minimum to get started?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>There's no fixed minimum, but the strategy works most powerfully for people with $100,000+ in available cash or the consistent ability to fund a policy over time. Our most impactful client cases start in the $150,000–$500,000 range. During your free 15-minute analysis, we'll tell you honestly whether the numbers work for your situation — and if they don't, we'll tell you that too.</p></div>
+        <div class="faq-a"><p>There's no fixed minimum, but the strategy works most powerfully for people with $100,000+ in available cash or the consistent ability to fund a policy over time. Our most impactful client cases start in the $150,000–$500,000 range. During your free 30-minute analysis, we'll tell you honestly whether the numbers work for your situation — and if they don't, we'll tell you that too.</p></div>
       </div>
 
     </div>
@@ -1497,9 +1497,9 @@ fbq("track", "PageView");
   <div class="container">
     <div class="fcta-divider"></div>
     <h2>The Right Strategy Changes<br><span class="gold">Everything. One Call Does.</span></h2>
-    <p>Tracy works with a limited number of new clients each quarter. If you're earning $200K+ and losing too much to taxes, a free 15-minute call will show you exactly what's possible — and whether this is the right fit for you. No pitch. No pressure. Just the truth about what your money could be doing.</p>
+    <p>Tracy works with a limited number of new clients each quarter. If you're earning $200K+ and losing too much to taxes, a free 30-minute call will show you exactly what's possible — and whether this is the right fit for you. No pitch. No pressure. Just the truth about what your money could be doing.</p>
     <div class="fcta-btns">
-      <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Check Your Fit — Free 15-Min Call →</a>
+      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Check Your Fit — Free 30-Min Call →</a>
       <a href="policy-rescue.html" class="btn btn-outline btn-lg">Fix My Existing Policy</a>
     </div>
     <div class="fcta-contact">
@@ -1538,7 +1538,7 @@ fbq("track", "PageView");
           <li><a href="#calculator">Wealth Calculator</a></li>
           <li><a href="resources.html">Free Guides</a></li>
           <li><a href="about.html">About Tracy</a></li>
-          <li><a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener">Book a Call</a></li>
+          <li><a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener">Book a Call</a></li>
         </ul>
       </div>
     </div>
@@ -1565,7 +1565,7 @@ fbq("track", "PageView");
       <div class="exit-result" id="exit-result">$1,200 / year</div>
       <div class="exit-result-sub">Lost annually to bank-rate interest vs. what it could earn</div>
     </div>
-    <a href="https://calendly.com/tracy-retirement-tax-free/15min" target="_blank" rel="noopener" class="btn btn-gold btn-lg" style="width:100%;justify-content:center;" onclick="closeExit()">Book My Free Analysis →</a>
+    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold btn-lg" style="width:100%;justify-content:center;" onclick="closeExit()">Book My Free Analysis →</a>
     <p style="font-size:.78rem;color:var(--faint);margin-top:.85rem;cursor:pointer;" onclick="closeExit()">No thanks, I'll leave my money where it is.</p>
   </div>
 </div>
