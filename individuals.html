@@ -254,6 +254,17 @@
       h1{font-size:2rem;}
       .btn-lg{padding:1rem 1.5rem;font-size:1rem;}
     }
+  
+    /* Important Information block */
+    .isi{background:var(--bg2,#0f1a33);border-top:2px solid var(--gold,#d4af37);padding:3rem 1.5rem 2.5rem;}
+    .isi-inner{max-width:1100px;margin:0 auto;}
+    .isi h2{font-size:1.35rem;color:var(--gold,#d4af37);margin:0 0 .6rem;letter-spacing:.02em;}
+    .isi-lead{font-size:1rem;color:var(--text,#e8ecf5);margin:0 0 1.5rem;max-width:860px;line-height:1.6;}
+    .isi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem 2.5rem;}
+    @media(max-width:768px){.isi-grid{grid-template-columns:1fr;}}
+    .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
+    .isi ul{margin:0;padding-left:1.1rem;}
+    .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -716,6 +727,48 @@ function indSelect(el){
   </div>
 </section>
 
+<!-- IMPORTANT INFORMATION (keep on every page; update in all pages together) -->
+<section class="isi" id="important-information" aria-labelledby="isi-title">
+  <div class="isi-inner">
+    <h2 id="isi-title">Important Information</h2>
+    <p class="isi-lead">Indexed universal life (IUL) and other cash-value life insurance is life insurance. It is not an investment, a bank account or a security, it is not FDIC insured, and it is not right for everyone.</p>
+    <div class="isi-grid">
+      <div>
+        <h3>Costs and risks</h3>
+        <ul>
+          <li>Policies have fees and charges, highest in the early years. Surrender charges apply for a number of years, so you can get back less than you paid in if you cancel early.</li>
+          <li>Indexed interest credits are subject to caps and participation rates the insurance company can change, and may be zero. The 0% floor applies to index credits only; fees can still reduce cash value.</li>
+          <li>A policy may need more premium than planned to stay in force. Coverage requires medical and financial underwriting.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Taxes and policy loans</h3>
+        <ul>
+          <li>Cash value grows tax-deferred, and the death benefit is generally income-tax free.</li>
+          <li>Policy loans and withdrawals accrue interest and reduce cash value and death benefit. They may be taxable if the policy lapses, is surrendered or is a modified endowment contract (MEC).</li>
+          <li>We do not give tax or legal advice. Talk with your own tax and legal advisors.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Illustrations and guarantees</h3>
+        <ul>
+          <li>Illustrations and examples are hypothetical and not guaranteed. Always review the guaranteed values.</li>
+          <li>Guarantees are based on the claims-paying ability of the issuing insurance company.</li>
+          <li>Replacing an existing policy may not be in your best interest; it can mean new surrender charges, costs, underwriting and a new contestability period.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Who we are</h3>
+        <ul>
+          <li>Trace (Tracy) Hoth is a licensed insurance agent, Utah License #7616161, licensed in UT, ID, WY, VA, OH, NM, WA, GA, NC, SC and NV. Products are offered only where licensed.</li>
+          <li>Unshakeable Financial Partners LLC, 419 S 455 E, Smithfield, UT 84335. We offer life insurance and annuities only, through multiple insurance companies, and are paid commissions by those companies.</li>
+          <li>Links to Calendly, Zoom and other sites take you to third-party services with their own privacy policies.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-row">
@@ -776,4 +829,3 @@ rqBuildDots('rq-dots',0);
 
 </body>
 </html>
-                                                                                                                                                                                                                                                      

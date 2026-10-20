@@ -247,6 +247,17 @@
       h1{font-size:2rem;}
       .btn-lg{padding:1rem 1.5rem;font-size:1rem;}
     }
+  
+    /* Important Information block */
+    .isi{background:var(--bg2,#0f1a33);border-top:2px solid var(--gold,#d4af37);padding:3rem 1.5rem 2.5rem;}
+    .isi-inner{max-width:1100px;margin:0 auto;}
+    .isi h2{font-size:1.35rem;color:var(--gold,#d4af37);margin:0 0 .6rem;letter-spacing:.02em;}
+    .isi-lead{font-size:1rem;color:var(--text,#e8ecf5);margin:0 0 1.5rem;max-width:860px;line-height:1.6;}
+    .isi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem 2.5rem;}
+    @media(max-width:768px){.isi-grid{grid-template-columns:1fr;}}
+    .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
+    .isi ul{margin:0;padding-left:1.1rem;}
+    .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -360,7 +371,7 @@ fbq("track", "PageView");
     <div class="page-hero-content fade">
       <span class="eyebrow-red">Free IUL Policy Review</span>
       <h1>You Were Sold a Policy.<br>Were You Sold <em style="color:var(--red);">the Wrong One?</em></h1>
-      <p class="page-hero-sub">Many IUL policies are designed around the sale rather than the client. If yours is underperforming, hard to understand, or not doing what you were promised, we'll review it at no charge and tell you the honest truth about whether to keep it, fix it, or replace it. No pitch. No obligation. Just clarity from someone who has no stake in the answer.</p>
+      <p class="page-hero-sub">If your policy is underperforming, hard to understand, or not doing what you expected, we'll review it at no charge and tell you honestly whether to keep it, adjust it, or consider replacing it. Often the answer is to keep it. No pitch. No obligation. Just clarity from someone who has no stake in the answer.</p>
       <div class="hero-cta">
         <a href="#audit" class="btn btn-red btn-lg">Request My Free Policy Audit →</a>
         <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Talk to Tracy First</a>
@@ -379,7 +390,7 @@ fbq("track", "PageView");
         <p>My parents were sold a poorly designed life insurance policy. The agent made a lot of money. My parents ended up with nothing.<br><br>That is why I do this work.</p>
       </div>
       <div class="story-body fade">
-        <p>What happened to my parents wasn't rare. It happens every day, to good people who trusted someone who presented themselves as a financial professional. The policy was structured to maximize commission — high death benefit, minimum cash value, projections that looked impressive in a meeting and collapsed by year 8.</p>
+        <p>What happened to my parents isn't unique. Their policy carried a high death benefit, built little cash value, and was shown with projections that looked impressive in the meeting but didn't hold up.</p>
         <p>By the time they realized something was wrong, it was too late to do much about it. They had been paying premiums for years. The cash value was a fraction of what they were shown. The agent was long gone.</p>
         <p><strong>You deserve to know the truth about your policy.</strong> Whether you're 2 years in or 12 years in, whether it's a small policy or a large one — you deserve a second opinion from someone who has no incentive to tell you anything other than the truth.</p>
         <p>If your policy is good, we'll tell you it's good and send you on your way. If it's not good, we'll show you exactly why — and what your options are.</p>
@@ -415,7 +426,7 @@ fbq("track", "PageView");
       <div class="rf-card fade">
         <div class="rf-icon">📉</div>
         <h3>Your Cash Value Isn't Growing Like They Said</h3>
-        <p>If you've had your policy for 3+ years and your cash value is significantly lower than what you were shown in your original illustration, something is wrong. Either the market underperformed, the fees are too high, or the structure was never right.</p>
+        <p>If you've had your policy for 3+ years and your cash value is significantly lower than what you were shown in your original illustration, it's worth finding out why. Lower index credits, higher costs or the way the policy was designed and funded can all play a part.</p>
       </div>
       <div class="rf-card fade">
         <div class="rf-icon">❓</div>
@@ -429,8 +440,8 @@ fbq("track", "PageView");
       </div>
       <div class="rf-card fade">
         <div class="rf-icon">👋</div>
-        <h3>Your Agent Has Disappeared</h3>
-        <p>You haven't heard from your agent since you signed the paperwork. No annual review. No check-in. No adjustments. This is unfortunately common — because once the commission was earned, you were no longer valuable. We stay. Our clients don't chase us.</p>
+        <h3>No One Has Reviewed It in Years</h3>
+        <p>You haven't had an annual review since you signed the paperwork. Policies need regular check-ups, because funding, credits and costs change over time. Your current agent or insurance company can also give you an in-force illustration showing where the policy is headed.</p>
       </div>
     </div>
   </div>
@@ -450,7 +461,7 @@ fbq("track", "PageView");
       <div class="rescue-card fade">
         <div class="rescue-card-icon">🔧</div>
         <h3>In-Force Policy Repair</h3>
-        <p>Some policies can be restructured without replacement — adjusting the death benefit, changing the funding strategy, or modifying the allocation. If your policy has decent bones and a strong carrier, repair may be the right move. We'll tell you honestly if this is an option.</p>
+        <p>Some policies can be restructured without replacement — adjusting the death benefit, changing the funding strategy, or modifying the allocation. If your policy has a solid design and a strong insurance company, keeping and adjusting it is often the better move. We'll tell you honestly if this is an option.</p>
       </div>
       <div class="rescue-card fade">
         <div class="rescue-card-icon">🔄</div>
@@ -531,10 +542,10 @@ fbq("track", "PageView");
     <div class="exchange-box">
       <div class="exchange-text fade-l">
         <span class="eyebrow" style="margin-bottom:1.25rem;">IRS Section 1035</span>
-        <h2>A Bad Policy Doesn't<br>Have to Mean a<br><span class="gold">Total Loss.</span></h2>
+        <h2>A Bad Policy Doesn't<br>Have to Mean<br><span class="gold">Starting Over.</span></h2>
         <div class="divider divider--l"></div>
         <p>Section 1035 of the tax code allows you to exchange one life insurance policy for another without a current taxable event. Your cost basis carries over to the new policy.</p>
-        <p>But a replacement is not free. Any surrender charges on the old policy still apply, the new policy has its own costs, a new surrender period and contestability period, and you must qualify medically. We compare both policies side by side, in writing, before you decide.</p>
+        <p>But a replacement is not free. Any surrender charges on the old policy still apply, the new policy has its own costs, a new surrender period and contestability period, and you must qualify medically. We compare both policies side by side, in writing, before you decide. If a replacement is recommended, we complete the replacement notices and comparison forms your state requires, and you can review them with your current agent or insurance company first.</p>
         <div class="note">
           <p><strong>Important:</strong> Not every policy is a good 1035 candidate. It depends on surrender charges, existing basis, carrier, and your current health for underwriting. We'll tell you upfront whether it makes sense for your situation.</p>
         </div>
@@ -595,7 +606,7 @@ fbq("track", "PageView");
       </div>
       <div class="faq-item fade">
         <button class="faq-q">Will a 1035 exchange reset my surrender period?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>Yes — a new policy starts a new surrender period, typically 7–10 years depending on the carrier. This is one of the key trade-offs we evaluate in a 1035 analysis. Sometimes it makes sense to accept a new surrender period in exchange for dramatically better performance over the next 10–20 years. Sometimes it doesn't. We run the math both ways and show you which option wins at your specific timeline.</p></div>
+        <div class="faq-a"><p>Yes — a new policy starts a new surrender period, typically 7–10 years depending on the carrier. This is one of the key trade-offs we evaluate in a 1035 analysis. Sometimes it makes sense to accept a new surrender period in exchange for a design that better fits your goals going forward, and sometimes it doesn't. We show both sides, including guaranteed values, so you can see how each option looks on your timeline. Future performance is not guaranteed.</p></div>
       </div>
     </div>
   </div>
@@ -614,6 +625,48 @@ fbq("track", "PageView");
     </div>
     <div class="fcta-contact">
       Call Tracy: <a href="tel:4352323234">(435) 232-3234</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORTANT INFORMATION (keep on every page; update in all pages together) -->
+<section class="isi" id="important-information" aria-labelledby="isi-title">
+  <div class="isi-inner">
+    <h2 id="isi-title">Important Information</h2>
+    <p class="isi-lead">Indexed universal life (IUL) and other cash-value life insurance is life insurance. It is not an investment, a bank account or a security, it is not FDIC insured, and it is not right for everyone.</p>
+    <div class="isi-grid">
+      <div>
+        <h3>Costs and risks</h3>
+        <ul>
+          <li>Policies have fees and charges, highest in the early years. Surrender charges apply for a number of years, so you can get back less than you paid in if you cancel early.</li>
+          <li>Indexed interest credits are subject to caps and participation rates the insurance company can change, and may be zero. The 0% floor applies to index credits only; fees can still reduce cash value.</li>
+          <li>A policy may need more premium than planned to stay in force. Coverage requires medical and financial underwriting.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Taxes and policy loans</h3>
+        <ul>
+          <li>Cash value grows tax-deferred, and the death benefit is generally income-tax free.</li>
+          <li>Policy loans and withdrawals accrue interest and reduce cash value and death benefit. They may be taxable if the policy lapses, is surrendered or is a modified endowment contract (MEC).</li>
+          <li>We do not give tax or legal advice. Talk with your own tax and legal advisors.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Illustrations and guarantees</h3>
+        <ul>
+          <li>Illustrations and examples are hypothetical and not guaranteed. Always review the guaranteed values.</li>
+          <li>Guarantees are based on the claims-paying ability of the issuing insurance company.</li>
+          <li>Replacing an existing policy may not be in your best interest; it can mean new surrender charges, costs, underwriting and a new contestability period.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Who we are</h3>
+        <ul>
+          <li>Trace (Tracy) Hoth is a licensed insurance agent, Utah License #7616161, licensed in UT, ID, WY, VA, OH, NM, WA, GA, NC, SC and NV. Products are offered only where licensed.</li>
+          <li>Unshakeable Financial Partners LLC, 419 S 455 E, Smithfield, UT 84335. We offer life insurance and annuities only, through multiple insurance companies, and are paid commissions by those companies.</li>
+          <li>Links to Calendly, Zoom and other sites take you to third-party services with their own privacy policies.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

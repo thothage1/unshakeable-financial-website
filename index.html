@@ -773,6 +773,17 @@
       h1{font-size:2rem;}
       .btn-lg{padding:1rem 1.5rem;font-size:1rem;}
     }
+  
+    /* Important Information block */
+    .isi{background:var(--bg2,#0f1a33);border-top:2px solid var(--gold,#d4af37);padding:3rem 1.5rem 2.5rem;}
+    .isi-inner{max-width:1100px;margin:0 auto;}
+    .isi h2{font-size:1.35rem;color:var(--gold,#d4af37);margin:0 0 .6rem;letter-spacing:.02em;}
+    .isi-lead{font-size:1rem;color:var(--text,#e8ecf5);margin:0 0 1.5rem;max-width:860px;line-height:1.6;}
+    .isi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem 2.5rem;}
+    @media(max-width:768px){.isi-grid{grid-template-columns:1fr;}}
+    .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
+    .isi ul{margin:0;padding-left:1.1rem;}
+    .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -1125,7 +1136,7 @@ fbq("track", "PageView");
       <span class="eyebrow" style="margin-bottom:1.25rem;">The Hard Truth</span>
       <h2>Yes — You've Probably Heard<br><span class="gold">IUL Is Bad.</span></h2>
       <div class="divider divider--c"></div>
-      <p>You're not wrong to be skeptical. Thousands of people have been sold terrible IUL policies by agents who prioritized their commission over your outcome. But the problem was never the tool — it was the design.</p>
+      <p>You're not wrong to be skeptical. Some people have been sold IUL policies that were poorly designed for their goals. In many of those cases, the problem wasn't the type of policy. It was how the policy was designed and funded.</p>
     </div>
     <div class="iul-compare fade">
       <div class="iul-col iul-col--bad">
@@ -1134,9 +1145,9 @@ fbq("track", "PageView");
           <p>What most people have been sold</p>
         </div>
         <div class="iul-list">
-          <div class="iul-item"><span class="iul-item-icon">💀</span><div class="iul-item-text"><strong>High death benefit, low cash value</strong>Maximizes agent commission. Minimizes your growth. The exact opposite of what you want.</div></div>
-          <div class="iul-item"><span class="iul-item-icon">📉</span><div class="iul-item-text"><strong>Underfunded from day one</strong>Illustrated with optimistic projections that fall apart by year 7. The policy lapse risk is real.</div></div>
-          <div class="iul-item"><span class="iul-item-icon">🎭</span><div class="iul-item-text"><strong>Wrong carrier for the strategy</strong>Not every carrier performs the same. Wrong choice = dramatically worse outcome.</div></div>
+          <div class="iul-item"><span class="iul-item-icon">💀</span><div class="iul-item-text"><strong>High death benefit, low cash value</strong>Can mean higher insurance costs and less cash value. That's the wrong design if cash value is your goal.</div></div>
+          <div class="iul-item"><span class="iul-item-icon">📉</span><div class="iul-item-text"><strong>Underfunded from day one</strong>Illustrated at optimistic assumptions and funded too lightly. If actual credits come in lower, the policy can need more premium or lapse.</div></div>
+          <div class="iul-item"><span class="iul-item-icon">🎭</span><div class="iul-item-text"><strong>Wrong carrier for the strategy</strong>Insurance companies differ in costs, caps and features. The right fit depends on your age, health and goals.</div></div>
           <div class="iul-item"><span class="iul-item-icon">🔒</span><div class="iul-item-text"><strong>No coordination with your tax or investment team</strong>Sold in isolation. No one connects the dots on your overall financial picture.</div></div>
         </div>
       </div>
@@ -1146,10 +1157,10 @@ fbq("track", "PageView");
           <p>How it should be — and how we build it</p>
         </div>
         <div class="iul-list">
-          <div class="iul-item"><span class="iul-item-icon">🏆</span><div class="iul-item-text"><strong>Max-funded — lowest legal death benefit</strong>Built for cash value growth, not commission. Your interests first, always.</div></div>
+          <div class="iul-item"><span class="iul-item-icon">🏆</span><div class="iul-item-text"><strong>Max-funded — lowest legal death benefit</strong>Designed around cash value goals, within IRS limits that keep it from becoming a modified endowment contract (MEC).</div></div>
           <div class="iul-item"><span class="iul-item-icon">📈</span><div class="iul-item-text"><strong>Funded realistically — conservative illustrations</strong>We show guaranteed and non-guaranteed values side by side, at conservative assumptions, and review how the policy is doing every year.</div></div>
           <div class="iul-item"><span class="iul-item-icon">🎯</span><div class="iul-item-text"><strong>Right company, right structure</strong>We compare options from multiple insurance companies and choose the fit for your age, health and goals.</div></div>
-          <div class="iul-item"><span class="iul-item-icon">🤝</span><div class="iul-item-text"><strong>Coordinated with your CPA and investment advisor</strong>We don't replace your team. We make your team more powerful — and your CPA will thank you.</div></div>
+          <div class="iul-item"><span class="iul-item-icon">🤝</span><div class="iul-item-text"><strong>Coordinated with your CPA and investment advisor</strong>We don't replace your team. We work alongside your CPA and attorney, who advise on tax and legal questions.</div></div>
         </div>
       </div>
     </div>
@@ -1227,7 +1238,7 @@ fbq("track", "PageView");
 <section class="faq">
   <div class="container">
     <div class="faq-header fade">
-      <h2>Questions We Hear <span class="gold">Every Day</span></h2>
+      <h2>Questions We <span class="gold">Often Hear</span></h2>
       <div class="divider divider--c"></div>
       <p>Honest answers. No spin. If a question isn't here, call us — we'll give you a straight answer.</p>
     </div>
@@ -1290,12 +1301,54 @@ fbq("track", "PageView");
 
 
 <!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+<!-- IMPORTANT INFORMATION (keep on every page; update in all pages together) -->
+<section class="isi" id="important-information" aria-labelledby="isi-title">
+  <div class="isi-inner">
+    <h2 id="isi-title">Important Information</h2>
+    <p class="isi-lead">Indexed universal life (IUL) and other cash-value life insurance is life insurance. It is not an investment, a bank account or a security, it is not FDIC insured, and it is not right for everyone.</p>
+    <div class="isi-grid">
+      <div>
+        <h3>Costs and risks</h3>
+        <ul>
+          <li>Policies have fees and charges, highest in the early years. Surrender charges apply for a number of years, so you can get back less than you paid in if you cancel early.</li>
+          <li>Indexed interest credits are subject to caps and participation rates the insurance company can change, and may be zero. The 0% floor applies to index credits only; fees can still reduce cash value.</li>
+          <li>A policy may need more premium than planned to stay in force. Coverage requires medical and financial underwriting.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Taxes and policy loans</h3>
+        <ul>
+          <li>Cash value grows tax-deferred, and the death benefit is generally income-tax free.</li>
+          <li>Policy loans and withdrawals accrue interest and reduce cash value and death benefit. They may be taxable if the policy lapses, is surrendered or is a modified endowment contract (MEC).</li>
+          <li>We do not give tax or legal advice. Talk with your own tax and legal advisors.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Illustrations and guarantees</h3>
+        <ul>
+          <li>Illustrations and examples are hypothetical and not guaranteed. Always review the guaranteed values.</li>
+          <li>Guarantees are based on the claims-paying ability of the issuing insurance company.</li>
+          <li>Replacing an existing policy may not be in your best interest; it can mean new surrender charges, costs, underwriting and a new contestability period.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Who we are</h3>
+        <ul>
+          <li>Trace (Tracy) Hoth is a licensed insurance agent, Utah License #7616161, licensed in UT, ID, WY, VA, OH, NM, WA, GA, NC, SC and NV. Products are offered only where licensed.</li>
+          <li>Unshakeable Financial Partners LLC, 419 S 455 E, Smithfield, UT 84335. We offer life insurance and annuities only, through multiple insurance companies, and are paid commissions by those companies.</li>
+          <li>Links to Calendly, Zoom and other sites take you to third-party services with their own privacy policies.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-top">
       <div>
         <div class="footer-logo"><a href="index.html" class="logo">Unshakeable<span>Financial</span></a></div>
-        <p class="footer-desc">A division of Common Sense Financial. We build tax-advantaged wealth strategies for business owners and high-income individuals who are serious about their financial future — and their family's.</p>
+        <p class="footer-desc">A division of Common Sense Financial. We help business owners and individuals use properly designed life insurance to protect their families and businesses and build cash value over the long term.</p>
         <p class="footer-desc" style="margin-top:.75rem;">419 S 455 E, Smithfield, UT 84335</p>
         <p class="footer-desc" style="margin-top:.35rem;"><a href="tel:4352323234" style="color:var(--gold);">(435) 232-3234</a></p>
       </div>
