@@ -1,11 +1,18 @@
 // Unshakeable Financial Partners — GoHighLevel Lead Integration
 // Receives form submissions from the website and creates contacts in GoHighLevel CRM
 
-const GHL_API_KEY = 'pit-e901fbdf-01ec-405e-9eff-a0b4acf40b21';
-const GHL_LOCATION_ID = 'gRqC0BlLHXJDWDulti0D';
+// Keys are stored in Netlify: Site configuration > Environment variables.
+// Never paste API keys into this file; the whole folder is public.
+const GHL_API_KEY = process.env.GHL_API_KEY;
+const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'gRqC0BlLHXJDWDulti0D';
 const GHL_API_URL = 'https://services.leadconnectorhq.com';
 
 exports.handler = async (event) => {
+  if (!GHL_API_KEY) {
+    console.error('GHL_API_KEY environment variable is not set');
+    return { statusCode: 500, body: JSON.stringify({ error: 'Lead capture is not configured' }) };
+  }
+
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
