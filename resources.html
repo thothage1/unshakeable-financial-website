@@ -116,6 +116,10 @@
     .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
     .isi ul{margin:0;padding-left:1.1rem;}
     .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
+  
+    /* On phones, slide-in animations move up instead of sideways (no sideways scroll) */
+    @media(max-width:900px){.fade-l,.fade-r{transform:translateY(26px);}.fade-l.in,.fade-r.in{transform:none;}}
+    .lm-grid>*,.exchange-box>*,.retain-split>*{min-width:0;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -208,7 +212,7 @@ fbq("track", "PageView");
 <!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="page-hero-content fade">
+    <div class="page-hero-content">
       <span class="eyebrow">Free Resources</span>
       <h1>Guides That Tell You<br><span class="gold">the Whole Truth</span></h1>
       <p class="page-hero-sub">No email required. No follow-up pressure. Just the information you need to understand your options and make smart decisions.</p>

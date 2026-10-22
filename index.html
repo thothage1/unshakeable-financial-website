@@ -786,6 +786,10 @@
     .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
     .isi ul{margin:0;padding-left:1.1rem;}
     .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
+  
+    /* On phones, slide-in animations move up instead of sideways (no sideways scroll) */
+    @media(max-width:900px){.fade-l,.fade-r{transform:translateY(26px);}.fade-l.in,.fade-r.in{transform:none;}}
+    .lm-grid>*,.exchange-box>*,.retain-split>*{min-width:0;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -911,7 +915,7 @@ fbq("track", "PageView");
   <div class="hero-glow-a"></div>
   <div class="hero-glow-b"></div>
   <div class="container">
-    <div class="hero-content fade-l">
+    <div class="hero-content">
       <span class="eyebrow">Licensed Insurance Agent · Utah</span>
       <h1>Protect What You've Built.<br><em>Plan What Comes Next.</em></h1>
       <p class="hero-sub">Properly structured life insurance can protect your family and your business, build cash value that grows tax-deferred, and give you another source of money to draw on later. Most people have only seen it sold badly. We design it carefully, explain the trade-offs plainly, and coordinate with your CPA.</p>

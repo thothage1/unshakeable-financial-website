@@ -204,6 +204,19 @@
     .isi h3{font-size:.95rem;color:var(--white,#fff);margin:0 0 .45rem;text-transform:uppercase;letter-spacing:.06em;}
     .isi ul{margin:0;padding-left:1.1rem;}
     .isi li{font-size:.9rem;line-height:1.6;color:var(--muted,#aab3c8);margin-bottom:.4rem;}
+  
+    /* Phone-width fixes: let grid columns and form fields shrink to the screen */
+    .form-grid>*,.audit-form>*,.retain-split>*,.form-field{min-width:0;}
+    .form-field input,.form-field select,.form-field textarea{width:100%;max-width:100%;min-width:0;box-sizing:border-box;}
+    .page-hero,.final-cta,.hero{overflow:hidden;}
+    @media(max-width:560px){
+      .form-box,.audit-box{padding:1.75rem 1.1rem;}
+      .retain-stat-box{padding:1.5rem 1.1rem;}
+    }
+  
+    /* On phones, slide-in animations move up instead of sideways (no sideways scroll) */
+    @media(max-width:900px){.fade-l,.fade-r{transform:translateY(26px);}.fade-l.in,.fade-r.in{transform:none;}}
+    .lm-grid>*,.exchange-box>*,.retain-split>*{min-width:0;}
   </style>
 <!-- Meta Pixel -->
 <script>
@@ -310,7 +323,7 @@ fbq("track", "PageView");
 <section class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container">
-    <div class="hero-content fade-l">
+    <div class="hero-content">
       <span class="eyebrow">For Licensed Agents &amp; IMOs</span>
       <h1>Bring Business Owners<br><em>a Better Conversation.</em></h1>
       <p class="hero-sub">Learn how to help business owners with key-person protection, buy-sell funding and key-employee retention, including Corp FlexMethod, with training, case design support and a client-first standard.</p>
