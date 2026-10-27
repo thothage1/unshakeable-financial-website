@@ -231,7 +231,7 @@ fbq("track", "PageView");
 
 <!-- Visitor Segmentation + Sequential Ad Logic -->
 <script>
-(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='widget/bookings']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Booking CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
+(function(){var path=window.location.pathname.replace(/\/$/,"")||"/";var pageMap={"/":"homepage","/index":"homepage","/index.html":"homepage","/business-owners":"business_owner","/business-owners.html":"business_owner","/individuals":"individual","/individuals.html":"individual","/policy-rescue":"policy_rescue","/policy-rescue.html":"policy_rescue","/agents":"agent","/agents.html":"agent","/about":"about","/about.html":"about","/resources":"guide_downloader","/resources.html":"guide_downloader"};var labels={"homepage":"Homepage Visitor","business_owner":"Business Owner","individual":"Individual","policy_rescue":"Bad Policy Prospect","agent":"Financial Agent","about":"About Page Visitor","guide_downloader":"Guide Page Visitor"};var seg=pageMap[path]||"other";var label=labels[seg]||"Other";function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+"="+v+";expires="+e.toUTCString()+";path=/;SameSite=Lax";}function getCookie(n){var ca=document.cookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n+"=")==0)return c.substring(n.length+1);}return"";}var visited=getCookie("uf_segments")?getCookie("uf_segments").split(","):[];if(seg!=="other"&&visited.indexOf(seg)===-1){visited.push(seg);setCookie("uf_segments",visited.join(","),180);}if(typeof fbq!=="undefined"){fbq("track","ViewContent",{content_name:label,content_category:seg});var evMap={"business_owner":"ViewBusinessOwnerPage","individual":"ViewIndividualsPage","policy_rescue":"ViewPolicyRescuePage","agent":"ViewAgentsPage","about":"ViewAboutPage","guide_downloader":"ViewResourcesPage"};if(evMap[seg])fbq("trackCustom",evMap[seg]);if(visited.length>=2)fbq("trackCustom","HighEngagementVisitor",{pages_visited:visited.join(",")});}document.addEventListener("click",function(e){var el=e.target.closest("a[href*='widget/bookings'],a[href*='calendly.com']");if(el){if(typeof fbq!=="undefined")fbq("track","Lead",{content_name:"Booking CTA",content_category:seg});setCookie("uf_clicked_cta","1",180);}},true);document.addEventListener("click",function(e){var el=e.target.closest("a[href$='.pdf']");if(el){var fn=el.href.split("/").pop();if(typeof fbq!=="undefined"){fbq("track","Lead",{content_name:"Guide: "+fn});fbq("trackCustom","GuideDownload",{guide:fn});}setCookie("uf_downloaded_guide","1",180);}},true);})();
 </script>
 <!-- End Tracking -->
   <script type="application/ld+json">
@@ -267,7 +267,7 @@ fbq("track", "PageView");
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-17:00",
     "sameAs": [
-      "https://link.crmvo.com/widget/bookings/unshakeable-strategy-call"
+      "https://calendly.com/tracy-retirement/education"
     ]
   }
   </script>
@@ -289,6 +289,7 @@ o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+
 o.onload=function(){window.trackingFunctions.onLoad({appId:"6a8784789e90d900189bdd91"})},
 document.head.appendChild(o)}initApollo();</script>
 <!-- End Apollo Tracker -->
+<script src="/js/lead-backup.js"></script>
 </head>
 <body>
 
@@ -323,7 +324,7 @@ document.head.appendChild(o)}initApollo();</script>
       <a href="resources.html">Free Guides</a>
   </div>
   <div class="nav-mobile-cta-wrap">
-    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
+    <a href="https://calendly.com/tracy-retirement/education" target="_blank" rel="noopener" class="nav-mobile-cta">Book Free Analysis →</a>
   </div>
 </div>
 
@@ -435,7 +436,7 @@ document.head.appendChild(o)}initApollo();</script>
     <p>Our agents are educators first. If you want to help business owners with honest, well-designed planning, let's talk.</p>
     <div class="fcta-btns">
       <a href="#apply" class="btn btn-gold btn-lg">Apply to Join the Team →</a>
-      <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Book a Discovery Call</a>
+      <a href="https://calendly.com/tracy-retirement/education" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Book a Discovery Call</a>
     </div>
     <div class="fcta-contact">Questions? Call Tracy: <a href="tel:4352323234">(435) 232-3234</a></div>
   </div>

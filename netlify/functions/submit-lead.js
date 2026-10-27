@@ -1,8 +1,11 @@
 // Unshakeable Financial Partners — GoHighLevel Lead Integration
 // Receives form submissions from the website and creates contacts in GoHighLevel CRM
 
-const GHL_API_KEY = 'pit-e901fbdf-01ec-405e-9eff-a0b4acf40b21';
-const GHL_LOCATION_ID = 'gRqC0BlLHXJDWDulti0D';
+// The CRM key lives in Netlify (Site configuration > Environment variables > GHL_API_KEY),
+// never in this public file. If it is missing, leads are still saved by Netlify Forms
+// (see js/lead-backup.js), just not pushed into the CRM.
+const GHL_API_KEY = process.env.GHL_API_KEY || '';
+const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'gRqC0BlLHXJDWDulti0D';
 const GHL_API_URL = 'https://services.leadconnectorhq.com';
 
 exports.handler = async (event) => {
@@ -53,6 +56,15 @@ exports.handler = async (event) => {
   if (data['score'])           notes.push(`Assessment Score: ${data['score']}`);
   if (data['grade'])           notes.push(`Grade: ${data['grade']}`);
 
+  // Contact form + annuity / rate review fields
+  if (data['state'])       notes.push(`State: ${data['state']}`);
+  if (data['interest'])    notes.push(`Interested in: ${data['interest']}`);
+  if (data['coming-due'])  notes.push(`Coming due: ${data['coming-due']}`);
+  if (data['timing'])      notes.push(`When: ${data['timing']}`);
+  if (data['amount'])      notes.push(`Approx. amount: ${data['amount']}`);
+  if (data['message'])     notes.push(`Message: ${data['message']}`);
+  if (data['consent'])     notes.push(`Call/text consent: ${data['consent']}`);
+
   // "What matters most" priority widget selections
   if (data['priorities'])      notes.push(`Top Priorities: ${data['priorities']}`);
 
@@ -63,6 +75,8 @@ exports.handler = async (event) => {
     'retirement-readiness-quiz': 'tax-quiz',
     'tax-assessment':            'tax-assessment',
     'agent-interest':            'agent-inquiry',
+    'rate-review':               'rate-review',
+    'contact-form':              'contact-form',
   };
   if (sourceTagMap[formName]) {
     contact.tags.push(sourceTagMap[formName]);
@@ -76,6 +90,10 @@ exports.handler = async (event) => {
   }
 
   // ── Create contact in GoHighLevel ───────────────────────────────────────
+  if (!GHL_API_KEY) {
+    console.warn(`GHL_API_KEY not set; lead kept in Netlify Forms only | Form: ${formName}`);
+    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true }) };
+  }
   try {
     const ghlRes = await fetch(`${GHL_API_URL}/contacts/`, {
       method: 'POST',
