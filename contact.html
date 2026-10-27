@@ -36,8 +36,17 @@
     .btn{display:inline-block;padding:.85rem 1.75rem;border-radius:8px;font-weight:600;font-size:.95rem;}
     .btn-gold{background:var(--gold);color:#070C17;}
     .btn-outline{border:1px solid var(--border);color:var(--text);}
-    .form-wrap{background:#0D1526;border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:4rem;min-height:1140px;}
-    .form-wrap iframe{width:100%;height:1100px;border:none;border-radius:8px;}
+    .form-wrap{background:#0D1526;border:1px solid var(--border);border-radius:12px;padding:1.75rem;margin-bottom:4rem;}
+    .cf{display:flex;flex-direction:column;gap:1rem;}
+    .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    @media(max-width:640px){.cf-row{grid-template-columns:1fr;}}
+    .cf-field{display:flex;flex-direction:column;gap:.35rem;min-width:0;}
+    .cf-field label{font-size:.85rem;color:var(--muted);}
+    .cf input[type=text],.cf input[type=email],.cf input[type=tel],.cf select,.cf textarea{background:#070C17;border:1px solid var(--border);color:var(--text);border-radius:7px;padding:.8rem 1rem;font:inherit;font-size:.95rem;width:100%;}
+    .cf-consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.78rem;line-height:1.5;color:var(--muted);}
+    .cf-consent input{margin-top:.25rem;flex:none;}
+    .cf button{align-self:flex-start;border:none;cursor:pointer;}
+    .cf-done{text-align:center;padding:2rem 0;}
     .direct-info{text-align:center;color:var(--muted);font-size:.9rem;padding-bottom:3rem;}
     .direct-info a{color:var(--gold);}
     footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--muted);font-size:.85rem;}
@@ -48,6 +57,7 @@ o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+
 o.onload=function(){window.trackingFunctions.onLoad({appId:"6a8784789e90d900189bdd91"})},
 document.head.appendChild(o)}initApollo();</script>
 <!-- End Apollo Tracker -->
+<script src="/js/lead-backup.js"></script>
 </head>
 <body>
 
@@ -73,27 +83,39 @@ document.head.appendChild(o)}initApollo();</script>
   </div>
 
   <div class="contact-options">
-    <a href="https://link.crmvo.com/widget/bookings/unshakeable-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">Prefer to Book a Call? →</a>
+    <a href="https://calendly.com/tracy-retirement/education" target="_blank" rel="noopener" class="btn btn-gold">Prefer to Book a Call? →</a>
   </div>
 
   <div class="form-wrap">
-    <iframe
-      src="https://link.crmvo.com/widget/form/dzox5kFt5I23iekwsEun"
-      style="width:100%;height:100%;border:none;border-radius:8px"
-      id="inline-dzox5kFt5I23iekwsEun"
-      data-layout="{'id':'INLINE'}"
-      data-trigger-type="alwaysShow"
-      data-trigger-value=""
-      data-activation-type="alwaysActivated"
-      data-activation-value=""
-      data-deactivation-type="neverDeactivate"
-      data-deactivation-value=""
-      data-form-name="Unshakeable lead form"
-      data-height="1100"
-      data-layout-iframe-id="inline-dzox5kFt5I23iekwsEun"
-      data-form-id="dzox5kFt5I23iekwsEun"
-      title="Unshakeable lead form">
-    </iframe>
+    <form id="contact-form" class="cf" onsubmit="submitContact(event)">
+      <div class="cf-row">
+        <div class="cf-field"><label for="cf-fname">First Name</label><input id="cf-fname" type="text" autocomplete="given-name" required/></div>
+        <div class="cf-field"><label for="cf-lname">Last Name</label><input id="cf-lname" type="text" autocomplete="family-name"/></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cf-email">Email</label><input id="cf-email" type="email" autocomplete="email" required/></div>
+        <div class="cf-field"><label for="cf-phone">Phone</label><input id="cf-phone" type="tel" autocomplete="tel"/></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cf-state">State</label><input id="cf-state" type="text" autocomplete="address-level1"/></div>
+        <div class="cf-field"><label for="cf-interest">I'm interested in</label>
+          <select id="cf-interest">
+            <option value="">Select…</option>
+            <option>Annuity / guaranteed income</option>
+            <option>CD or annuity rate review</option>
+            <option>IUL / cash-value life insurance</option>
+            <option>Business owner planning (key person, buy-sell)</option>
+            <option>Review of a policy I already own</option>
+            <option>Final expense or term life</option>
+            <option>Joining as an agent</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="cf-field"><label for="cf-message">How can we help?</label><textarea id="cf-message" rows="5"></textarea></div>
+      <label class="cf-consent"><input id="cf-consent" type="checkbox"/><span>I agree that Unshakeable Financial Partners LLC and its licensed agents may contact me at the phone number and email above about life insurance and annuities, including by calls and texts that use automated technology. Consent is not required to buy anything. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy">Privacy Policy &amp; SMS Terms</a>.</span></label>
+      <button type="submit" class="btn btn-gold" id="cf-submit">Send Message →</button>
+    </form>
   </div>
 
   <div class="direct-info">
@@ -101,7 +123,20 @@ document.head.appendChild(o)}initApollo();</script>
   </div>
 </div>
 
-<script src="https://link.crmvo.com/js/form_embed.js"></script>
+
+<script>
+function submitContact(e){
+  e.preventDefault();
+  var g=function(id){return (document.getElementById(id).value||'').trim();};
+  var btn=document.getElementById('cf-submit'); btn.disabled=true; btn.textContent='Sending…';
+  fetch('/.netlify/functions/submit-lead',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({'form-name':'contact-form','first-name':g('cf-fname'),'last-name':g('cf-lname'),'email':g('cf-email'),'phone':g('cf-phone'),'state':g('cf-state'),'interest':g('cf-interest'),'message':g('cf-message'),'consent':document.getElementById('cf-consent').checked?'Yes, agreed to calls/texts':'No'}).toString()
+  }).then(function(){
+    document.querySelector('.form-wrap').innerHTML='<div class="cf-done"><h2>Thank you!</h2><p>We received your message and will get back to you within one business day. Need us sooner? Call or text <a href="tel:4352323234">(435) 232-3234</a>.</p></div>';
+  }).catch(function(){btn.disabled=false;btn.textContent='Send Message →';alert('Something went wrong. Please call or text (435) 232-3234.');});
+}
+</script>
+<form name="contact-form" data-netlify="true" hidden><input name="first-name"/><input name="last-name"/><input name="email"/><input name="phone"/><input name="state"/><input name="interest"/><textarea name="message"></textarea><input name="consent"/></form>
 
 <footer>
   <div class="container">
