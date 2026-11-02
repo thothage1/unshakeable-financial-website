@@ -5,7 +5,7 @@
 // never in this public file. If it is missing, leads are still saved by Netlify Forms
 // (see js/lead-backup.js), just not pushed into the CRM.
 const GHL_API_KEY = process.env.GHL_API_KEY || '';
-const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'gRqC0BlLHXJDWDulti0D';
+const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'gRqC0BILHXJDWDulti0D';
 const GHL_API_URL = 'https://services.leadconnectorhq.com';
 
 exports.handler = async (event) => {
