@@ -130,25 +130,43 @@ exports.handler = async (event) => {
       if (!noteOk) console.warn('Note not added:', nRes && nRes.status);
     }
 
-    // 3. Add to a pipeline, only if a pipeline and stage are set in Netlify
-    //    (GHL_PIPELINE_ID and GHL_PIPELINE_STAGE_ID); GHL requires both.
+    // 3. Add to the right pipeline, matched by its name in Voice CRM, at its first stage:
+    //    annuity rate reviews -> "Annuities", agent applications -> "Recruitment",
+    //    everything else -> "IUL / FlexMethod". (GHL_PIPELINE_ID + GHL_PIPELINE_STAGE_ID in
+    //    Netlify override this, if ever set.)
     let pipeline = 'not_set';
-    if (process.env.GHL_PIPELINE_ID && process.env.GHL_PIPELINE_STAGE_ID) {
-      const oRes = await fetch(`${GHL_API_URL}/opportunities/`, {
-        method: 'POST', headers,
-        body: JSON.stringify({
-          locationId: GHL_LOCATION_ID,
-          pipelineId: process.env.GHL_PIPELINE_ID,
-          pipelineStageId: process.env.GHL_PIPELINE_STAGE_ID,
-          name: `${contact.firstName} ${contact.lastName} — ${sourceTagMap[formName] || formName}`.trim(),
-          contactId,
-          status: 'open',
-          source: 'Website Form',
-        }),
-      }).catch(() => null);
-      pipeline = oRes && oRes.ok ? 'added' : `error ${oRes ? oRes.status : 'network'}`;
-      if (!(oRes && oRes.ok)) console.warn('Opportunity not created:', pipeline);
+    try {
+      let pipelineId = process.env.GHL_PIPELINE_ID, stageId = process.env.GHL_PIPELINE_STAGE_ID, pName = 'env';
+      if (!pipelineId || !stageId) {
+        const want = formName === 'rate-review' ? 'annuit' : formName === 'agent-interest' ? 'recruit' : 'iul';
+        const pRes = await fetch(`${GHL_API_URL}/opportunities/pipelines?locationId=${GHL_LOCATION_ID}`, { headers });
+        const pData = await pRes.json().catch(() => ({}));
+        const list = (pData && pData.pipelines) || [];
+        const match = list.find(p => String(p.name || '').toLowerCase().includes(want));
+        const first = match && (match.stages || []).slice().sort((x, y) => (x.position || 0) - (y.position || 0))[0];
+        if (match && first) { pipelineId = match.id; stageId = first.id; pName = `${match.name} / ${first.name}`; }
+        else pipeline = `no pipeline named like "${want}" (${pRes.status})`;
+      }
+      if (pipelineId && stageId) {
+        const oRes = await fetch(`${GHL_API_URL}/opportunities/`, {
+          method: 'POST', headers,
+          body: JSON.stringify({
+            locationId: GHL_LOCATION_ID,
+            pipelineId,
+            pipelineStageId: stageId,
+            name: `${contact.firstName} ${contact.lastName} — ${sourceTagMap[formName] || formName}`.trim(),
+            contactId,
+            status: 'open',
+            source: 'Website Form',
+          }),
+        });
+        const oData = await oRes.json().catch(() => ({}));
+        pipeline = oRes.ok ? `added to ${pName}` : `error ${oRes.status}: ${short(oData)}`;
+      }
+    } catch (e) {
+      pipeline = `error: ${String(e.message).slice(0, 80)}`;
     }
+    if (!pipeline.startsWith('added')) console.warn('Pipeline step:', pipeline);
 
     return reply(crm, `note ${noteOk ? 'ok' : 'failed'}; pipeline ${pipeline}`);
   } catch (err) {
