@@ -82,76 +82,77 @@ exports.handler = async (event) => {
     contact.tags.push(sourceTagMap[formName]);
   }
 
-  if (notes.length > 0) {
-    contact.customFields.push({
-      id: 'notes',
-      field_value: notes.join('\n'),
-    });
-  }
+  const headers = {
+    'Authorization': `Bearer ${GHL_API_KEY}`,
+    'Version': '2021-07-28',
+    'Content-Type': 'application/json',
+  };
+  // Reply tells the page (and anyone testing) whether the CRM really saved the lead.
+  // It never includes the key or the lead's details.
+  const reply = (crm, detail) => ({
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(detail ? { success: true, crm, detail } : { success: true, crm }),
+  });
+  const short = (o) => String((o && (o.message || o.error)) || '').slice(0, 160);
 
-  // ── Create contact in GoHighLevel ───────────────────────────────────────
   if (!GHL_API_KEY) {
     console.warn(`GHL_API_KEY not set; lead kept in Netlify Forms only | Form: ${formName}`);
-    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true }) };
+    return reply('not_configured');
   }
+
   try {
-    const ghlRes = await fetch(`${GHL_API_URL}/contacts/`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GHL_API_KEY}`,
-        'Version': '2021-07-28',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(contact),
-    });
-
-    const ghlData = await ghlRes.json();
-
-    if (ghlRes.ok) {
-      console.log(`✓ Contact created: ${ghlData.contact?.id} | Form: ${formName} | Email: ${contact.email}`);
-
-      // ── Add to pipeline opportunity ──────────────────────────────────────
-      if (ghlData.contact?.id) {
-        await fetch(`${GHL_API_URL}/opportunities/`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${GHL_API_KEY}`,
-            'Version': '2021-07-28',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            locationId: GHL_LOCATION_ID,
-            name: `${contact.firstName} ${contact.lastName} — ${sourceTagMap[formName] || formName}`,
-            contactId: ghlData.contact.id,
-            status: 'open',
-            source: 'Website Form',
-          }),
-        }).catch(e => console.warn('Opportunity creation skipped:', e.message));
+    // 1. Create the contact (or find the existing one if this email/phone is already in the CRM)
+    const ghlRes = await fetch(`${GHL_API_URL}/contacts/`, { method: 'POST', headers, body: JSON.stringify(contact) });
+    const ghlData = await ghlRes.json().catch(() => ({}));
+    let contactId = ghlData.contact && ghlData.contact.id;
+    let crm = 'saved';
+    if (!ghlRes.ok) {
+      contactId = ghlData.meta && ghlData.meta.contactId; // duplicate contact: GHL returns the existing id
+      if (!contactId) {
+        console.error('GHL contact error:', ghlRes.status, JSON.stringify(ghlData));
+        return reply('error', `contact ${ghlRes.status}: ${short(ghlData)}`);
       }
+      crm = 'existing_contact_updated';
+      // Add this form's tags to the existing contact
+      await fetch(`${GHL_API_URL}/contacts/${contactId}/tags`, { method: 'POST', headers, body: JSON.stringify({ tags: contact.tags }) })
+        .catch(e => console.warn('Tagging skipped:', e.message));
+    }
+    console.log(`Contact ${crm}: ${contactId} | Form: ${formName}`);
 
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ success: true }),
-      };
-
-    } else {
-      // GHL returned an error — log it but still tell the user it worked
-      // so they don't get confused by error messages
-      console.error('GHL API error:', JSON.stringify(ghlData));
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ success: true }),
-      };
+    // 2. Add the form answers as a note on the contact
+    let noteOk = true;
+    if (notes.length > 0) {
+      const nRes = await fetch(`${GHL_API_URL}/contacts/${contactId}/notes`, {
+        method: 'POST', headers, body: JSON.stringify({ body: `Website form: ${formName}\n` + notes.join('\n') }),
+      }).catch(() => null);
+      noteOk = !!(nRes && nRes.ok);
+      if (!noteOk) console.warn('Note not added:', nRes && nRes.status);
     }
 
+    // 3. Add to a pipeline, only if a pipeline and stage are set in Netlify
+    //    (GHL_PIPELINE_ID and GHL_PIPELINE_STAGE_ID); GHL requires both.
+    let pipeline = 'not_set';
+    if (process.env.GHL_PIPELINE_ID && process.env.GHL_PIPELINE_STAGE_ID) {
+      const oRes = await fetch(`${GHL_API_URL}/opportunities/`, {
+        method: 'POST', headers,
+        body: JSON.stringify({
+          locationId: GHL_LOCATION_ID,
+          pipelineId: process.env.GHL_PIPELINE_ID,
+          pipelineStageId: process.env.GHL_PIPELINE_STAGE_ID,
+          name: `${contact.firstName} ${contact.lastName} — ${sourceTagMap[formName] || formName}`.trim(),
+          contactId,
+          status: 'open',
+          source: 'Website Form',
+        }),
+      }).catch(() => null);
+      pipeline = oRes && oRes.ok ? 'added' : `error ${oRes ? oRes.status : 'network'}`;
+      if (!(oRes && oRes.ok)) console.warn('Opportunity not created:', pipeline);
+    }
+
+    return reply(crm, `note ${noteOk ? 'ok' : 'failed'}; pipeline ${pipeline}`);
   } catch (err) {
     console.error('Function error:', err.message);
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ success: true }),
-    };
+    return reply('error', `network: ${String(err.message).slice(0, 120)}`);
   }
 };
