@@ -275,7 +275,32 @@
     /* On phones, slide-in animations move up instead of sideways (no sideways scroll) */
     @media(max-width:900px){.fade-l,.fade-r{transform:translateY(26px);}.fade-l.in,.fade-r.in{transform:none;}}
     .lm-grid>*,.exchange-box>*,.retain-split>*{min-width:0;}
-  </style>
+  
+  /* trust strip, quick request, mobile bar */
+  .trust-strip{display:flex;align-items:center;gap:.9rem;margin-top:1.75rem;color:var(--muted);font-size:.92rem;line-height:1.4}
+  .trust-strip img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(200,169,74,.45);flex:none}
+  .trust-strip strong{color:var(--text)}
+  .quick-req{background:var(--bg2);padding:2.5rem 0}
+  .quick-box{max-width:760px;margin:0 auto;background:var(--bg3);border:1px solid rgba(200,169,74,.35);border-radius:16px;padding:1.75rem}
+  .quick-box h2{font-size:1.5rem;margin:0 0 .35rem}
+  .quick-box h2 span{font-size:.95rem;color:var(--muted);font-weight:400}
+  .quick-box>p{color:var(--muted);margin:0 0 1rem}
+  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.9rem}
+  .quick-grid input,.quick-grid select{width:100%;min-width:0;padding:.85rem .9rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:var(--bg);color:var(--text);font:inherit;font-size:16px}
+  .quick-consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.78rem;line-height:1.5;color:var(--muted);margin-bottom:1rem;cursor:pointer}
+  .quick-consent input{margin-top:.2rem;flex:none}
+  .quick-consent a,.quick-alt a{color:var(--gold)}
+  .quick-alt{font-size:.9rem;color:var(--muted);margin:.8rem 0 0}
+  #qr-submit{width:100%}
+  .mobile-bar{display:none}
+  @media(max-width:640px){
+    .quick-grid{grid-template-columns:1fr}
+    .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:999;background:#0B1220;border-top:1px solid rgba(200,169,74,.4);padding:.5rem;gap:.5rem;padding-bottom:calc(.5rem + env(safe-area-inset-bottom))}
+    .mobile-bar a{flex:1;text-align:center;padding:.75rem .25rem;border-radius:10px;font-weight:600;font-size:.9rem;color:var(--text);border:1px solid rgba(255,255,255,.18);text-decoration:none}
+    .mobile-bar a.mb-gold{background:var(--gold);color:#070C17;border-color:var(--gold)}
+    body{padding-bottom:72px}
+  }
+</style>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];var L=function(){t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)};if(b.readyState==="complete"){setTimeout(L,1500)}else{f.addEventListener("load",function(){setTimeout(L,1500)})}}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
@@ -360,9 +385,47 @@ document.head.appendChild(o)}initApollo();</script>
         <a href="#review" class="btn btn-gold btn-lg">Request My Free Rate Review →</a>
         <a href="tel:4352323234" class="btn btn-outline btn-lg">Call Trace: (435) 232-3234</a>
       </div>
+      <div class="trust-strip">
+        <img src="tracy-hoth.jpg" alt="Trace Hoth, licensed insurance agent" width="64" height="64">
+        <div><strong>Trace Hoth</strong>, Licensed Insurance Agent<br><span>22 years helping Utah families with insurance and retirement decisions</span></div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- QUICK REQUEST -->
+<section class="quick-req" id="quick">
+  <div class="container">
+    <div class="quick-box">
+      <h2>Quick Request <span>(about 30 seconds)</span></h2>
+      <p>Tell us how to reach you and what's coming due. We'll take it from there.</p>
+      <div class="quick-grid">
+        <input type="text" id="qr-fname" placeholder="First name" autocomplete="given-name" aria-label="First name">
+        <input type="tel" id="qr-phone" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+        <input type="email" id="qr-email" placeholder="Email" autocomplete="email" aria-label="Email">
+        <select id="qr-due" aria-label="What's coming due?">
+          <option value="">What's coming due?</option>
+          <option>Bank CD</option>
+          <option>Fixed annuity (MYGA)</option>
+          <option>Fixed indexed annuity</option>
+          <option>401(k), 403(b) or 457 at retirement</option>
+          <option>Just want lifetime income options</option>
+          <option>Not sure</option>
+        </select>
+      </div>
+      <label class="quick-consent"><input type="checkbox" id="qr-consent"> <span>I agree that Unshakeable Financial Partners LLC and its licensed agents may contact me at the phone number and email above about life insurance and annuities, including by calls and texts that use automated technology. Consent is not required to buy anything. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy">Privacy Policy &amp; SMS Terms</a>.</span></label>
+      <button class="btn btn-gold btn-lg" id="qr-submit" onclick="submitQuickRequest()">Get My Free Rate Review →</button>
+      <p class="quick-alt">Prefer to talk now? <a href="tel:4352323234">Call</a> or <a href="sms:4352323234">text</a> Trace at (435) 232-3234.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE CALL/TEXT BAR -->
+<div class="mobile-bar" aria-label="Contact Trace">
+  <a href="tel:4352323234">📞 Call Trace</a>
+  <a href="sms:4352323234">💬 Text Trace</a>
+  <a href="#quick" class="mb-gold">Free Review</a>
+</div>
 
 
 <!-- WHO IT'S FOR -->
@@ -647,6 +710,35 @@ setTimeout(()=>{document.querySelectorAll('.fade,.fade-l,.fade-r').forEach(el=>e
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
 document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open');});});
 
+
+function submitQuickRequest(){
+  var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+  var email=g('qr-email'), phone=g('qr-phone');
+  if(!g('qr-fname')){alert('Please enter your first name.');return;}
+  if(!phone && (!email||email.indexOf('@')<1)){alert('Please enter a phone number or email so we can reach you.');return;}
+  if(email && email.indexOf('@')<1){alert('Please check your email address.');return;}
+  var btn=document.getElementById('qr-submit'); if(btn){btn.disabled=true;btn.textContent='Sending…';}
+  fetch('/.netlify/functions/submit-lead',{
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({
+      'form-name':'rate-review',
+      'first-name':g('qr-fname'),'last-name':'',
+      'email':email,'phone':phone,'state':'',
+      'coming-due':g('qr-due'),'timing':'','amount':'',
+      'message':'Quick request (top of page)',
+      'consent':document.getElementById('qr-consent').checked?'Yes, agreed to calls/texts':'No'
+    }).toString()
+  }).then(function(r){
+    if(!r.ok){throw new Error('bad status');}
+    if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Rate Review - Quick'});}
+    var box=document.querySelector('#quick .quick-box');
+    if(box){box.innerHTML='<h2>Thank you! We\'ll be in touch within one business day.</h2><p style="color:var(--muted)">Want to pick a time now? <a style="color:var(--gold)" href="https://calendly.com/tracy-retirement/education" target="_blank" rel="noopener">Book a call on my calendar</a>, or call or text Trace at <a style="color:var(--gold)" href="tel:4352323234">(435) 232-3234</a>.</p>';}
+  }).catch(function(){
+    if(btn){btn.disabled=false;btn.textContent='Get My Free Rate Review →';}
+    alert('Something went wrong. Please call or text (435) 232-3234.');
+  });
+}
 function submitRateReview(){
   var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
   var email=g('rr-email'), phone=g('rr-phone');
