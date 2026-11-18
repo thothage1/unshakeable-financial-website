@@ -8,6 +8,59 @@ const GHL_API_KEY = process.env.GHL_API_KEY || '';
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID || 'gRqC0BILHXJDWDulti0D';
 const GHL_API_URL = 'https://services.leadconnectorhq.com';
 
+// Instant lead email. Set these in Netlify (Environment variables), never in this public file:
+//   RESEND_API_KEY   - API key from resend.com (free plan is enough)
+//   LEAD_NOTIFY_EMAIL - where new leads are emailed (comma-separate for several)
+//   LEAD_FROM_EMAIL  - optional; defaults to Resend's test sender, which can only email the
+//                      address that owns the Resend account. Use a verified-domain address
+//                      (e.g. leads@yourdomain.com) to send anywhere.
+// This runs before the CRM step, so a lead reaches your inbox even if the CRM or Netlify's
+// spam filter drops it. A failure here never blocks the lead from being saved elsewhere.
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const LEAD_NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL || '';
+const LEAD_FROM_EMAIL = process.env.LEAD_FROM_EMAIL || 'Website Leads <onboarding@resend.dev>';
+
+const esc = (s) => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+async function emailLead(formName, data) {
+  if (!RESEND_API_KEY || !LEAD_NOTIFY_EMAIL) return 'not_configured';
+  const first = data['first-name'] || data['firstName'] || data['name'] || '';
+  const last = data['last-name'] || data['lastName'] || '';
+  const who = `${first} ${last}`.trim() || data['email'] || data['phone'] || 'new visitor';
+  const rows = Object.entries(data)
+    .filter(([k, v]) => v && k !== 'form-name' && k !== 'bot-field')
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#555"><b>${esc(k)}</b></td><td style="padding:4px 0">${esc(v)}</td></tr>`)
+    .join('');
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 4000);
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      signal: ctrl.signal,
+      headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: LEAD_FROM_EMAIL,
+        to: LEAD_NOTIFY_EMAIL.split(',').map((s) => s.trim()).filter(Boolean),
+        reply_to: data['email'] || undefined,
+        subject: `New lead (${formName}): ${who}`,
+        html: `<h3>New website lead: ${esc(formName)}</h3><table>${rows}</table>` +
+              `<p style="color:#888;font-size:12px">Sent instantly by the website. Call or text promptly.</p>`,
+      }),
+    });
+    if (!res.ok) {
+      console.error('Lead email failed:', res.status);
+      return `error ${res.status}`;
+    }
+    return 'sent';
+  } catch (e) {
+    console.error('Lead email error:', e.name === 'AbortError' ? 'timeout' : e.message);
+    return 'error';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 exports.handler = async (event) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
@@ -29,6 +82,9 @@ exports.handler = async (event) => {
   }
 
   const formName = data['form-name'] || 'website-form';
+
+  // Email the lead right away (never throws; see emailLead above)
+  const emailStatus = await emailLead(formName, data);
 
   // ── Map form fields to GoHighLevel contact ──────────────────────────────
   const contact = {
@@ -92,7 +148,7 @@ exports.handler = async (event) => {
   const reply = (crm, detail) => ({
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(detail ? { success: true, crm, detail } : { success: true, crm }),
+    body: JSON.stringify(detail ? { success: true, crm, email: emailStatus, detail } : { success: true, crm, email: emailStatus }),
   });
   const short = (o) => String((o && (o.message || o.error)) || '').slice(0, 160);
 
