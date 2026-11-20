@@ -38,7 +38,7 @@
       --border:rgba(200,169,74,.15);--border2:rgba(200,169,74,.28);
       --r:12px;--max:1160px;
     }
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
     body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
     h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.18;}
     h1{font-size:clamp(2.2rem,5vw,3.8rem);}
@@ -217,6 +217,8 @@
       transform:translateX(100%);transition:transform .3s ease;
       overflow-y:auto;display:flex;flex-direction:column;
     }
+    /* Closed menu must not take up space off the right edge (it widened the page on some Android browsers) */
+    .nav-mobile:not(.open){display:none;}
     .nav-mobile.open{transform:translateX(0);}
     .nav-mobile-head{
       display:flex;justify-content:space-between;
