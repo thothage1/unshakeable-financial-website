@@ -329,6 +329,19 @@ document.head.appendChild(o)}initApollo();</script>
   @media(max-width:760px){.rf-grid{grid-template-columns:1fr;}}
   .audit-form label.consent-label{text-transform:none;letter-spacing:normal;}
 </style>
+<style>
+  /* Phones with larger text: let buttons wrap so the page never gets wider than the screen */
+  @media(max-width:760px){
+    .page-hero>.container,.final-cta>.container{width:100%;min-width:0;}
+    .page-hero-content,.hero-cta{min-width:0;max-width:100%;}
+    .btn{white-space:normal;text-align:center;justify-content:center;max-width:100%;}
+    .hero-cta .btn{width:100%;}
+    .mobile-bar a{min-width:0;overflow-wrap:anywhere;}
+    .nav-inner{width:100%;min-width:0;}
+    .logo{white-space:normal;font-size:1.15rem;line-height:1.15;min-width:0;}
+    .nav-hamburger{flex:none;}
+  }
+</style>
 <script src="/js/lead-backup.js"></script>
 </head>
 <body>
