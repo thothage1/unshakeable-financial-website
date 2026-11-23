@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free CD &amp; Annuity Renewal Reminder | Unshakeable Financial Partners</title>
+<meta name="description" content="Tell us when your CD or annuity renews. Trace Hoth, Licensed Insurance Agent, will check in before it does with a free look at your options."/>
+<meta name="robots" content="noindex,follow"/>
+<link rel="canonical" href="https://unshakeablefinancial.com/renewal-reminder"/>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="/fonts/playfair-display.woff2" as="font" type="font/woff2" crossorigin/>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/inter.woff2) format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url(/fonts/playfair-display.woff2) format('woff2');}
+:root{--bg:#070C17;--bg2:#0B1220;--card:#0D1526;--gold:#C8A94A;--gold-lt:#E2C876;--white:#FFFFFF;--text:#EDF0F7;--muted:#8895AD;--border:rgba(200,169,74,.28);}
+*{box-sizing:border-box;}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%;}
+body{margin:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,#1A0A0A 0%,var(--bg) 60%);color:var(--text);font-family:'Inter',sans-serif;line-height:1.55;overflow-x:hidden;min-height:100vh;padding-bottom:84px;}
+h1,h2{font-family:'Playfair Display',serif;line-height:1.2;margin:0;}
+a{color:var(--gold);}
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 1.1rem;min-width:0;}
+header{padding:1rem 0;}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);text-decoration:none;}
+.logo span{color:var(--gold);}
+.hero{text-align:center;padding:.4rem 0 .2rem;}
+.eyebrow{display:inline-block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);border-radius:999px;padding:.35rem .8rem;margin-bottom:.9rem;}
+h1{font-size:clamp(1.5rem,5.6vw,2.3rem);color:var(--white);}
+h1 em{color:var(--gold);font-style:italic;}
+.sub{color:var(--muted);margin:.8rem auto 0;max-width:34em;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin:1.2rem 0;min-width:0;}
+.progress{display:flex;gap:.4rem;margin-bottom:1rem;}
+.progress i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.12);}
+.progress i.on{background:var(--gold);}
+.step{display:none;}
+.step.active{display:block;}
+.q{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin:0 0 .3rem;}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 1rem;}
+.opts{display:grid;gap:.6rem;}
+.opt{width:100%;text-align:left;background:var(--bg2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:.95rem 1rem;font:inherit;font-size:1rem;font-weight:600;cursor:pointer;white-space:normal;}
+.opt:hover,.opt:focus{border-color:var(--gold);outline:none;}
+.back{background:none;border:none;color:var(--muted);font:inherit;font-size:.9rem;cursor:pointer;margin-top:.9rem;padding:.3rem 0;}
+.field{margin-bottom:.8rem;}
+.field label.l{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem;}
+.field input[type=text],.field input[type=tel],.field input[type=email]{width:100%;min-width:0;background:var(--bg);color:var(--text);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:.9rem;font:inherit;font-size:16px;}
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.78rem;line-height:1.5;color:var(--muted);margin:.6rem 0 1rem;cursor:pointer;}
+.consent input{margin-top:.2rem;flex:none;}
+.go{width:100%;background:var(--gold);color:#070C17;border:none;border-radius:10px;padding:1rem;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;white-space:normal;}
+.go[disabled]{opacity:.6;cursor:default;}
+.err{color:#ff8a8a;font-size:.9rem;min-height:1.2em;margin:.2rem 0;}
+.who{display:flex;gap:.8rem;align-items:center;margin:1rem 0;color:var(--muted);font-size:.9rem;min-width:0;}
+.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--border);}
+.who div{min-width:0;}
+.who strong{color:var(--white);}
+.thanks h2{font-size:1.5rem;color:var(--white);}
+.thanks p{color:var(--muted);}
+.btnrow{display:grid;gap:.6rem;margin-top:1rem;}
+.btn{display:block;text-align:center;text-decoration:none;border:1px solid var(--gold);color:var(--gold);border-radius:10px;padding:.9rem;font-weight:700;}
+.btn.gold{background:var(--gold);color:#070C17;}
+.disc{font-size:.72rem;color:var(--muted);line-height:1.5;padding:1rem 0 1.5rem;}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:.5rem;padding:.5rem;background:var(--bg2);border-top:1px solid var(--border);padding-bottom:calc(.5rem + env(safe-area-inset-bottom));}
+.bar a{flex:1;min-width:0;text-align:center;padding:.75rem .25rem;border-radius:10px;font-weight:600;font-size:.9rem;color:var(--text);border:1px solid rgba(255,255,255,.18);text-decoration:none;overflow-wrap:anywhere;}
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];var L=function(){t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)};L()}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "2932510377121238");
+fbq("track", "PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2932510377121238&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel -->
+<script src="/js/lead-backup.js"></script>
+</head>
+<body>
+<header><div class="wrap"><a href="/" class="logo">Unshakeable<span>Financial</span></a></div></header>
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Free Renewal Reminder</span>
+    <h1>Is a CD or Annuity Renewing Soon?<br><em>Know Your Options Before It Does.</em></h1>
+    <p class="sub">Two quick questions. Trace Hoth, a licensed insurance agent, will check in before it renews with a free look at your options.</p>
+  </section>
+
+  <section class="card" id="quiz">
+    <div class="progress" id="prog"><i class="on"></i><i></i><i></i></div>
+
+    <div class="step active" id="s1">
+      <h2 class="q">What is coming up for renewal?</h2>
+      <p class="hint">Tap one.</p>
+      <div class="opts">
+        <button class="opt" data-q="what">Bank CD</button>
+        <button class="opt" data-q="what">Fixed annuity</button>
+        <button class="opt" data-q="what">More than one</button>
+        <button class="opt" data-q="what">Not sure yet</button>
+      </div>
+    </div>
+
+    <div class="step" id="s2">
+      <h2 class="q">About when does it renew?</h2>
+      <p class="hint">A rough guess is fine.</p>
+      <div class="opts">
+        <button class="opt" data-q="when">Within 30 days</button>
+        <button class="opt" data-q="when">In 1 to 3 months</button>
+        <button class="opt" data-q="when">In 3 to 6 months</button>
+        <button class="opt" data-q="when">More than 6 months away</button>
+        <button class="opt" data-q="when">Not sure</button>
+      </div>
+      <button class="back" id="b2" type="button">&larr; Back</button>
+    </div>
+
+    <div class="step" id="s3">
+      <h2 class="q">Where should Trace reach you?</h2>
+      <p class="hint">Phone is best. No spam, and you can ask us to stop at any time.</p>
+      <div class="field"><label class="l" for="fn">First name</label><input type="text" id="fn" autocomplete="given-name"/></div>
+      <div class="field"><label class="l" for="ph">Phone</label><input type="tel" id="ph" autocomplete="tel"/></div>
+      <div class="field"><label class="l" for="em">Email (optional)</label><input type="email" id="em" autocomplete="email"/></div>
+      <label class="consent"><input type="checkbox" id="cs"/> <span>I agree that Unshakeable Financial Partners LLC and its licensed agents may contact me at the phone number and email above about life insurance and annuities, including by calls and texts that use automated technology. Consent is not required to buy anything. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy">Privacy Policy &amp; SMS Terms</a>.</span></label>
+      <div class="err" id="err" role="alert"></div>
+      <button class="go" id="go" type="button">Remind Me Before It Renews &rarr;</button>
+      <button class="back" id="b3" type="button">&larr; Back</button>
+    </div>
+
+    <div class="step thanks" id="done">
+      <h2>Thank you. You are on the list.</h2>
+      <p>Trace will reach out before your renewal. Want to talk sooner? Call or text, or pick a time on the calendar.</p>
+      <div class="btnrow">
+        <a class="btn gold" href="tel:4352323234">Call Trace: (435) 232-3234</a>
+        <a class="btn" href="sms:4352323234">Text Trace</a>
+        <a class="btn" href="https://calendly.com/tracy-retirement/education" target="_blank" rel="noopener">Pick a time</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="who"><img src="/tracy-hoth.jpg" alt="Trace Hoth, licensed insurance agent" width="56" height="56"><div><strong>Trace Hoth</strong>, Licensed Insurance Agent<br>UT Lic. #7616161 &middot; Smithfield, Utah</div></div>
+
+  <p class="disc">© 2026 Unshakeable Financial Partners | Common Sense Financial LLC. Trace (Tracy) Hoth is a licensed insurance agent, Utah License #7616161. Unshakeable Financial Partners LLC, 419 S 455 E, Smithfield, UT 84335. Annuities are insurance products, not bank deposits, and are not FDIC insured. Guarantees are based on the claims-paying ability of the issuing insurance company. Surrender charges and limits on withdrawals may apply. We do not provide securities, investment advisory, tax or legal advice. · <a href="/privacy">Privacy Policy &amp; SMS Terms</a></p>
+</main>
+
+<div class="bar" aria-label="Contact Trace">
+  <a href="tel:4352323234">&#128222; Call Trace</a>
+  <a href="sms:4352323234">&#128172; Text Trace</a>
+</div>
+
+<script>
+(function(){
+  var answers={what:'',when:''};
+  var steps=['s1','s2','s3'];
+  function show(id){
+    ['s1','s2','s3','done'].forEach(function(s){document.getElementById(s).classList.toggle('active',s===id);});
+    var n=steps.indexOf(id);
+    var bars=document.querySelectorAll('#prog i');
+    for(var i=0;i<bars.length;i++){bars[i].classList.toggle('on',n===-1||i<=n);}
+    if(typeof fbq!=='undefined'&&n>=0){fbq('trackCustom','RenewalQuizStep',{step:n+1});}
+  }
+  document.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.getAttribute('data-q');answers[k]=b.textContent.trim();
+      show(k==='what'?'s2':'s3');
+    });
+  });
+  document.getElementById('b2').addEventListener('click',function(){show('s1');});
+  document.getElementById('b3').addEventListener('click',function(){show('s2');});
+  function utm(){
+    var p=new URLSearchParams(window.location.search),o=[];
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){if(p.get(k))o.push(k+'='+p.get(k));});
+    return o.join('&');
+  }
+  document.getElementById('go').addEventListener('click',function(){
+    var g=function(id){return document.getElementById(id).value.trim();};
+    var err=document.getElementById('err'),phone=g('ph'),email=g('em');
+    err.textContent='';
+    if(!g('fn')){err.textContent='Please enter your first name.';return;}
+    if(phone.replace(/\D/g,'').length<10){err.textContent='Please enter a phone number with area code.';return;}
+    if(email&&email.indexOf('@')<1){err.textContent='Please check your email address.';return;}
+    var btn=document.getElementById('go');btn.disabled=true;btn.textContent='Sending…';
+    var tag=utm();
+    fetch('/.netlify/functions/submit-lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams({
+        'form-name':'rate-review',
+        'first-name':g('fn'),'last-name':'',
+        'email':email,'phone':phone,'state':'',
+        'coming-due':answers.what,'timing':answers.when,'amount':'',
+        'message':'Renewal Reminder quiz'+(tag?' | '+tag:''),
+        'consent':document.getElementById('cs').checked?'Yes, agreed to calls/texts':'No'
+      }).toString()
+    }).then(function(r){
+      if(!r.ok){throw new Error('bad status');}
+      if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Renewal Reminder Quiz'});}
+      show('done');
+    }).catch(function(){
+      btn.disabled=false;btn.textContent='Remind Me Before It Renews →';
+      err.textContent='Something went wrong. Please call or text (435) 232-3234.';
+    });
+  });
+})();
+</script>
+</body>
+</html>
